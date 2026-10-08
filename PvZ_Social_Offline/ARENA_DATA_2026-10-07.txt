@@ -1,0 +1,14 @@
+Arena (占领) crash fixes (build 2026-10-07-arena-data)
+====================================================
+1. #2007 SelfStatusPanel.sendMyDataS2C (Parameter text must be non-null):
+   the arena status (I7001) got the generic reply; the panel sets
+   challengeScore / activityPoint as text. I7001 now returns a full status:
+   nobody occupies your town, rampage point level 0, challenge score = your
+   best rampage score, 0 activity points.
+2. #1009 PersonTile.onUpdateModel (ArenaListPanel): the locked capture-slot
+   tile reads its unlock price from item 1301, which did not exist. Item 1301
+   (type 18) is now in the item catalogue (2000 coins / 10 gems).
+   The challenger / captured / enemy lists (I7002 / I7003 / I7004) return
+   empty lists - offline there are no online opponents.
+Not tested in a running game: in my test the 占领 button did not open the
+arena panel, so I could not reach these screens.

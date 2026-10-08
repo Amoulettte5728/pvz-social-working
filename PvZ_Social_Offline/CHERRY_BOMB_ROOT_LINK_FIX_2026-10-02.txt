@@ -1,0 +1,8 @@
+Cherry Bomb root MovieClip linkage fix
+
+The Cherry Bomb SWF contained a 27-frame animation sprite (character ID 1),
+but its root PlaceObject2 placed character ID 2 instead. PlantBuilding/BitmapMcManager
+therefore did not receive the expected animated MovieClip when building the plant image.
+
+Fixed: root PlaceObject2 now places character ID 1, matching the actual animation sprite.
+The original SWF is retained at DEV_BACKUPS/Plant_CherryBomb_before_root_link_fix.swf.

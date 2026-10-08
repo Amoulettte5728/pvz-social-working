@@ -1,0 +1,260 @@
+{
+"Plant_Peashooter": [
+5,
+5,
+61,
+21
+],
+"Plant_Sunflower": [
+5,
+8,
+-35,
+-30
+],
+"Plant_CherryBomb": [
+-20,
+-10,
+70,
+60
+],
+"Plant_Wallnut": [
+5,
+8,
+0,
+0
+],
+"Plant_PotatoMine": [
+6,
+14,
+0,
+0
+],
+"Plant_Snowpea": [
+5,
+5,
+61,
+21
+],
+"Plant_Chomper": [
+0,
+-54,
+0,
+0
+],
+"Plant_Repeater": [
+5,
+5,
+61,
+21
+],
+"Plant_PuffShroom": [
+20,
+20,
+45,
+27
+],
+"Plant_FumeShroom": [
+3,
+-10,
+87,
+18
+],
+"Plant_GraveBuster": [
+-7,
+-35,
+50,
+14
+],
+"Plant_Cattail": [
+0,
+0,
+0,
+0
+],
+"Plant_LilyPad": [
+-2,
+16,
+0,
+0
+],
+"Plant_Squash": [
+-10,
+-17,
+0,
+0
+],
+"Plant_Tanglekelp": [
+-6,
+10,
+0,
+0
+],
+"Plant_Jalapeno": [
+5,
+-17,
+-60,
+-38
+],
+"Plant_Spikeweed": [
+2,
+40,
+50,
+14
+],
+"Plant_Torchwood": [
+5,
+-8,
+58,
+23
+],
+"Plant_Tallnut": [
+0,
+-38,
+0,
+0
+],
+"Plant_Pumpkin": [
+-8,
+22,
+0,
+0
+],
+"Plant_MagnetShroom": [
+-13,
+-16,
+0,
+0
+],
+"Plant_Cabbagepult": [
+-32,
+-35,
+60,
+0
+],
+"Plant_Pot": [
+5,
+25,
+0,
+0
+],
+"Plant_MariGold": [
+5,
+0,
+58,
+9
+],
+"Plant_PickleBomb": [
+5,
+-17,
+-60,
+-38
+],
+"Plant_IceFumeShroom": [
+3,
+-10,
+87,
+18
+],
+"Plant_Cactus": [
+-2,
+-70,
+88,
+92
+],
+"Plant_TwinSunflower": [
+-10,
+-10,
+-30,
+-40
+],
+"Plant_SunShroom": [
+8,
+13,
+-15,
+-30
+],
+"Plant_ScaredyShroom": [
+0,
+0,
+100,
+50
+],
+"Plant_CoffeeBean": [
+15,
+-10,
+0,
+0
+],
+"Plant_SeaShroom": [
+-5,
+10,
+55,
+45
+],
+"Plant_ReinforcedChomper": [
+0,
+-54,
+0,
+0
+],
+"Plant_MelonPult": [
+40,
+37,
+20,
+-70
+],
+"Plant_WinterMelon": [
+40,
+37,
+20,
+-70
+],
+"Plant_GloomShroom": [
+44,
+46,
+0,
+0
+],
+"Plant_Blover": [
+44,
+46,
+0,
+0
+],
+"Plant_GatlingPea": [
+5,
+5,
+61,
+21
+],
+"Plant_FireShroom": [
+0,
+0,
+0,
+0
+],
+"Plant_FireTorchWood": [
+-5,
+-7,
+58,
+23
+],
+"Plant_VinyGrowthNut": [
+0,
+0,
+0,
+0
+],
+"Plant_Qiake": [
+-8,
+22,
+0,
+0
+],
+"Plant_StarFruit": [
+0,
+10,
+40,
+36
+]
+}

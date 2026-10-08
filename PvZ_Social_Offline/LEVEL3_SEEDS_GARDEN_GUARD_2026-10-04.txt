@@ -1,0 +1,21 @@
+Level 3 seeds + garden crash guard (build 2026-10-04-level3-owned-seeds-garden-guard)
+====================================================================================
+1. Level 3 (新兵训练3): after the shovel lesson the seed bar used to hold only
+   Peashooter + Sunflower, whatever you had unlocked. It now holds your
+   unlocked plants (Peashooter and Sunflower first), up to your seed-slot
+   count - the same owned-card list the normal seed-selection screen uses.
+   Tested: an account owning Peashooter, Sunflower, Wall-nut and Cherry Bomb
+   gets all four after the shovel lesson.
+
+2. Garden plot crash (#1009 BitmapUtil.drawMovieClip <- PlantBuilding.onGetPlantSwf):
+   happens whenever a garden SWF loads but does not contain the class the seed
+   item asks for (e.g. an empty/placeholder Plant_X.swf).
+   PlantBuilding now checks the class exists (and that the seed has
+   <plantAnimator> frames) before drawing; otherwise the plot keeps its soil
+   and a [DEBUG-SKIN] line is written to the log. No more crash, whichever
+   seed is planted.
+   NOTE: a seed without real garden art then shows only soil. Peashooter,
+   Sunflower, Repeater, Snow Pea and Cherry Bomb have art.
+
+Changed: Tutorial + PlantBuilding in main.swf, PVZEntry_1_.swf and
+townEntry_1_.swf (and the copies in local/swf/v1/, which the game loads).

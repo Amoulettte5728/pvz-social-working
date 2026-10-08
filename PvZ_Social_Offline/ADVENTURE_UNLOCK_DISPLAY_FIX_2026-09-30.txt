@@ -1,0 +1,24 @@
+ADVENTURE UNLOCK DISPLAY FIX — 2026-09-30
+
+Problem:
+The Adventure panel was still rendering only the original tutorial card even
+when the save contained the next unlocked level and Cherry Bomb ownership.
+
+Fix:
+- services.I1007 now returns only the levels that are actually unlocked in the
+  persistent save (1, 2, 3, ...), rather than returning the entire catalogue
+  and relying on the client to filter it.
+- Each returned mission includes category/name/description/img plus explicit
+  completed/unlocked state fields.
+- I1007 also returns unlockedLevels/completedLevels for diagnostics and future
+  client-side use.
+- I1001 now exposes unlockedLevels and unlockedPlants alongside the existing
+  unlock map and owned-card items.
+- Existing save migration remains intact: tutorial completion gives Level 1,
+  unlocks Level 2, and grants Cherry Bomb (plant 17).
+
+Expected result after finishing Level 1:
+Adventure panel visibly contains:
+  新兵训练1 (completed)
+  新兵训练2 (unlocked/available)
+And Cherry Bomb (plant 17) is in the owned-card list used by the card/almanac UI.

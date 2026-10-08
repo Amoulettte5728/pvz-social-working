@@ -1,0 +1,211 @@
+=== PvZ server log - started 2026-10-08 12:19:36 ===
+[ALMANAC] 38 displayed plants read from conf/PlantData.xml
+=========================================================
+ Build check - server.py BUILD_LABEL: 2026-10-08-reveal-shadows
+=========================================================
+  [OK]       main.swf matches the latest patched build
+  [OK]       PVZEntry_1_.swf matches the latest patched build
+  [OK]       townEntry_1_.swf matches the latest patched build
+  [OK]       itemShop.swf matches the latest patched build
+  [OK]       pvzTD_1_.swf matches the latest patched build
+=========================================================
+
+=========================================================
+ Starting PvZ Local Python Server (Server ID: pvz_server_2026)
+=========================================================
+
+[*] Launching server on http://127.0.0.1:9090/ ...
+[*] Serves static files + crossdomain.xml + a minimal AMF stub for services.I****
+[*] Keep this terminal window OPEN while playing.
+
+=========================================================
+ PvZ Social Remake Asset Server Active
+=========================================================
+[*] Server running on: http://127.0.0.1:9090/
+[*] Phones / other devices on your Wi-Fi: http://10.2.21.188:9090/
+
+127.0.0.1 - - [08/Oct/2026 12:19:37] "GET /main.swf HTTP/1.1" 200 -
+[amf] POST /: 1 call(s)
+    [amf] target='services.I1001' response='/1' (20 bytes of args) account='Amoulettte'
+[progress] adventure catalogue: 33 levels
+127.0.0.1 - - [08/Oct/2026 12:19:39] "POST / HTTP/1.1" 200 -
+[amf] POST /: 1 call(s)
+127.0.0.1 - - [08/Oct/2026 12:19:40] "GET /config.gz HTTP/1.1" 200 -
+    [amf] target='services.I1028' response='/1' (59 bytes of args) account='Amoulettte'
+127.0.0.1 - - [08/Oct/2026 12:19:40] "POST / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:19:41] "GET /conf_1_.xml HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:19:41] "GET /EventList_1_.xml HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:19:41] "GET /Localization.xml HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:19:41] "GET /FeedPost_1_.xml HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:19:41] "GET /QuestList_1_.xml HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:19:41] "GET /GamePropItem_1_.xml HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:19:41] "GET /activityPanel_1_.swf HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:19:41] "GET /ZenGarden_1_.swf HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:19:41] "GET /ui_1_.swf HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:19:42] "GET /questCheck_1_.swf HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:19:42] "GET /townEntry_1_.swf HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:19:42] "GET /countryyard_1_.swf HTTP/1.1" 200 -
+[amf] POST /: 1 call(s)
+127.0.0.1 - - [08/Oct/2026 12:19:42] "GET /townUI_1_.swf HTTP/1.1" 200 -
+    [amf] target='services.I1003' response='/1' (61 bytes of args) account='Amoulettte'
+127.0.0.1 - - [08/Oct/2026 12:19:42] "POST / HTTP/1.1" 200 -
+[amf] POST /: 1 call(s)
+    [amf] target='services.I1033' response='/1' (59 bytes of args) account='Amoulettte'
+127.0.0.1 - - [08/Oct/2026 12:19:46] "POST / HTTP/1.1" 200 -
+[amf] POST /: 1 call(s)
+    [amf] target='services.I2001' response='/1' (71 bytes of args) account='Amoulettte'
+127.0.0.1 - - [08/Oct/2026 12:19:46] "POST / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:19:47] "GET /house2_1_.swf HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:19:47] "GET /house3_1_.swf HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:19:47] "GET /avatars/Amoulettte.png?v=1791401299079930500 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:19:47] "GET /avatars/Amoulettte.png?v=1791401299079930500 HTTP/1.1" 200 -
+[amf] POST /: 1 call(s)
+127.0.0.1 - - [08/Oct/2026 12:19:47] "GET /house1_1_.swf HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:19:47] "GET /gym1_1_.swf HTTP/1.1" 200 -
+    [amf] target='services.I1029' response='/1' (68 bytes of args) account='Amoulettte'
+127.0.0.1 - - [08/Oct/2026 12:19:47] "POST / HTTP/1.1" 200 -
+[amf] POST /: 1 call(s)
+    [amf] target='services.I1021' response='/1' (81 bytes of args) account='Amoulettte'
+127.0.0.1 - - [08/Oct/2026 12:19:47] "POST / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:19:47] "GET /avatars/Amoulettte1.png?v=1791401299 HTTP/1.1" 200 -
+[amf] POST /: 1 call(s)
+    [amf] target='services.I4008' response='/1' (59 bytes of args) account='Amoulettte'
+127.0.0.1 - - [08/Oct/2026 12:19:47] "GET /avatars/Groove.png?v=1791401299 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:19:47] "POST / HTTP/1.1" 200 -
+[amf] POST /: 1 call(s)
+    [amf] target='services.I1024' response='/1' (68 bytes of args) account='Amoulettte'
+127.0.0.1 - - [08/Oct/2026 12:19:47] "POST / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:19:47] "GET /activityPanel_1_.swf HTTP/1.1" 200 -
+[amf] POST /: 1 call(s)
+    [amf] target='services.I1032' response='/1' (68 bytes of args) account='Amoulettte'
+127.0.0.1 - - [08/Oct/2026 12:19:47] "POST / HTTP/1.1" 200 -
+[amf] POST /: 1 call(s)
+    [amf] target='services.I7017' response='/1' (59 bytes of args) account='Amoulettte'
+127.0.0.1 - - [08/Oct/2026 12:19:47] "POST / HTTP/1.1" 200 -
+    !!!! File not found NOT FOUND: /none.png  <-- probably what's blocking the loading bar
+127.0.0.1 - - [08/Oct/2026 12:19:47] code 404, message File not found
+    !!!! File not found NOT FOUND: /none.png  <-- probably what's blocking the loading bar    !!!! 404 NOT FOUND: /none.png  <-- probably what's blocking the loading bar
+
+127.0.0.1 - - [08/Oct/2026 12:19:47] "GET /none.png HTTP/1.1" 404 -
+127.0.0.1 - - [08/Oct/2026 12:19:47] code 404, message File not found
+    !!!! 404 NOT FOUND: /none.png  <-- probably what's blocking the loading bar
+127.0.0.1 - - [08/Oct/2026 12:19:47] "GET /none.png HTTP/1.1" 404 -
+127.0.0.1 - - [08/Oct/2026 12:20:31] "GET /rampagePanel_1_.swf HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:31] "GET /avatars/Amoulettte1.png?v=1791401299 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:31] "GET /avatars/Groove.png?v=1791401299 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:31] "GET /zombieCard_2_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:31] "GET /zombieCard_19_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:31] "GET /zombieCard_11_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:31] "GET /zombieCard_14_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:31] "GET /zombieCard_18_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:31] "GET /zombieCard_5_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:33] "GET /PVZEntry_1_.swf HTTP/1.1" 200 -
+[amf] POST /: 1 call(s)
+    [amf] target='services.I5013' response='/1' (59 bytes of args) account='Amoulettte'
+127.0.0.1 - - [08/Oct/2026 12:20:34] "POST / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:34] "GET /conf/plantData.xml HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:34] "GET /PropData_1_.xml HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:34] "GET /conf/zombieData.xml HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:34] "GET /pvzBulletData_1_.xml HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:34] "GET /pvzTDSound_1_.swf HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:34] "GET /pvzTD_1_.swf HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:34] "GET /rampageUI_1_.swf HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:34] "GET /pvzBonusZombie_1_.swf HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:34] "GET /pvzGargantuarZombie_1_.swf HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:34] "GET /pvzFootballZombie_1_.swf HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:34] "GET /pvzNormalZombie_1_.swf HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:34] "GET /pvzScreen1_1_.swf HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:34] "GET /pvzUI_1_.swf HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:39] "GET /item_672_1_.png HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:39] "GET /item_659_1_.png HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:39] "GET /item_660_1_.png HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:39] "GET /item_656_1_.png HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:39] "GET /item_657_1_.png HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:39] "GET /item_653_1_.png HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:39] "GET /item_658_1_.png HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:39] "GET /item_654_1_.png HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:39] "GET /item_655_1_.png HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:39] "GET /item_662_1_.png HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:39] "GET /item_668_1_.png HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:39] "GET /item_671_1_.png HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:39] "GET /item_663_1_.png HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:39] "GET /item_667_1_.png HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:39] "GET /item_666_1_.png HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:39] "GET /item_665_1_.png HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:39] "GET /item_661_1_.png HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:39] "GET /item_670_1_.png HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:39] "GET /item_669_1_.png HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:39] "GET /item_664_1_.png HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:42] "GET /item_16_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:42] "GET /item_17_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:42] "GET /item_9_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:42] "GET /item_12_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:42] "GET /item_2_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:42] "GET /item_20_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:42] "GET /item_24_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:42] "GET /item_22_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:42] "GET /item_18_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:42] "GET /item_13_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:42] "GET /item_4_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:42] "GET /item_8_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:42] "GET /item_25_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:20:42] "GET /item_11_1_.jpg HTTP/1.1" 200 -
+[amf] POST /: 1 call(s)
+    [amf] target='services.I4016' response='/1' (60 bytes of args) account='Amoulettte'
+127.0.0.1 - - [08/Oct/2026 12:21:16] "POST / HTTP/1.1" 200 -
+[amf] POST /: 1 call(s)
+    [amf] target='services.I2001' response='/1' (71 bytes of args) account='Amoulettte'
+127.0.0.1 - - [08/Oct/2026 12:21:17] "POST / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:21:18] "GET /avatars/Amoulettte.png?v=1791401299079930500 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:21:24] "GET /arenaPanel_1_.swf HTTP/1.1" 200 -
+[amf] POST /: 1 call(s)
+    [amf] target='services.I7006' response='/1' (59 bytes of args) account='Amoulettte'
+127.0.0.1 - - [08/Oct/2026 12:21:24] "POST / HTTP/1.1" 200 -
+[amf] POST /: 1 call(s)
+    [amf] target='services.I7001' response='/1' (59 bytes of args) account='Amoulettte'
+127.0.0.1 - - [08/Oct/2026 12:21:24] "POST / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:21:24] "GET /avatars/Amoulettte.png?v=1791401299079930500 HTTP/1.1" 200 -
+[amf] POST /: 1 call(s)
+    [amf] target='services.I7002' response='/1' (59 bytes of args) account='Amoulettte'
+127.0.0.1 - - [08/Oct/2026 12:21:25] "POST / HTTP/1.1" 200 -
+[amf] POST /: 1 call(s)
+    [amf] target='services.I7003' response='/1' (68 bytes of args) account='Amoulettte'
+127.0.0.1 - - [08/Oct/2026 12:21:26] "POST / HTTP/1.1" 200 -
+[amf] POST /: 1 call(s)
+    [amf] target='services.I7004' response='/1' (59 bytes of args) account='Amoulettte'
+127.0.0.1 - - [08/Oct/2026 12:21:26] "POST / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:21:28] "GET /adventure_1_.swf HTTP/1.1" 200 -
+[amf] POST /: 1 call(s)
+    [amf] target='services.I1007' response='/1' (59 bytes of args) account='Amoulettte'
+[progress] I1007 displayable=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 20, 21] finished=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 20] plants=[2, 4, 8, 9, 11, 12, 13, 16, 17, 18, 20, 22, 24, 25]
+127.0.0.1 - - [08/Oct/2026 12:21:28] "POST / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:26:06] "GET /almanac_1_.swf HTTP/1.1" 200 -
+[amf] POST /: 1 call(s)
+    [amf] target='services.I1017' response='/1' (59 bytes of args) account='Amoulettte'
+127.0.0.1 - - [08/Oct/2026 12:26:07] "POST / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:26:07] "GET /item_1_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:26:07] "GET /CardBigImage_12_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:26:07] "GET /item_15_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:26:07] "GET /item_5_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:26:07] "GET /item_10_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:26:07] "GET /item_21_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:26:07] "GET /item_6_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:26:07] "GET /item_19_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:26:07] "GET /item_7_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:26:07] "GET /item_14_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:26:07] "GET /item_23_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:26:07] "GET /item_41_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:26:07] "GET /item_73_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:26:07] "GET /item_71_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:26:07] "GET /item_27_1_.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:26:07] "GET /item_33_1_.jpg HTTP/1.1" 200 -
+[amf] POST /: 1 call(s)
+    [amf] target='services.I7006' response='/1' (59 bytes of args) account='Amoulettte'
+127.0.0.1 - - [08/Oct/2026 12:26:10] "POST / HTTP/1.1" 200 -
+[amf] POST /: 1 call(s)
+    [amf] target='services.I7001' response='/1' (59 bytes of args) account='Amoulettte'
+127.0.0.1 - - [08/Oct/2026 12:26:10] "POST / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 12:26:10] "GET /avatars/Amoulettte.png?v=1791401299079930500 HTTP/1.1" 200 -
+[amf] POST /: 1 call(s)
+    [amf] target='services.I1005' response='/1' (59 bytes of args) account='Amoulettte'
+127.0.0.1 - - [08/Oct/2026 12:29:55] "POST / HTTP/1.1" 200 -

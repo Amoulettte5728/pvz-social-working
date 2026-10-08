@@ -1,0 +1,17 @@
+Build: 2026-09-25-external-shop-tutorial-level1
+Shop:
+- itemShop.swf uses the user-designed shop SWF with ShopRoot compatibility class.
+- Button/item positions in the user-designed display list were not changed.
+- ItemShopUI resolves and instantiates shop.ShopRoot from the itemShop ApplicationDomain before falling back to loaded content.
+Tutorial:
+- Clicking any HOMES or FUNC_HOUSE building opens the Adventure panel.
+- Houses without a configured mission list use mission resourceId 1.
+- Tutorial house 701 is highlighted after the buy-house step.
+- Opening tutorial house 701 during TUTORIAL_STEP_TD_TUTORIAL opens Adventure and automatically starts mission 1 after the Adventure dialog completes.
+- Mission 1 uses the built-in MISSION_TUTORIAL1 settings: type 3, scene 1, 5 waves, 150 sun, zombie 2.
+
+Almanac packet correction (2026-09-29):
+- Future Star remains page 2 position 38 / cost 125.
+- Clam Chuck remains page 2 position 39 / cost 75.
+- Added packet images item_40_1_.jpg and item_76_1_.jpg from the supplied reference screenshot.
+- Added Cattail packet image item_44_1_.jpg from the supplied reference screenshot.

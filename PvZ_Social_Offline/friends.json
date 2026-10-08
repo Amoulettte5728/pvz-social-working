@@ -1,0 +1,24 @@
+{
+  "Amoulettte1": {
+    "friends": [
+      "Amoulettte"
+    ],
+    "incoming": [],
+    "outgoing": []
+  },
+  "Amoulettte": {
+    "friends": [
+      "Amoulettte1",
+      "Groove"
+    ],
+    "incoming": [],
+    "outgoing": []
+  },
+  "Groove": {
+    "friends": [
+      "Amoulettte"
+    ],
+    "incoming": [],
+    "outgoing": []
+  }
+}

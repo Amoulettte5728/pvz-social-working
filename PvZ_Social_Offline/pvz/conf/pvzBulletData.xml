@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BulletData>
+	<bullet id="-1" attack="0" velocity="0" damage_type="0"/>
+	<bullet id="1" attack="20" velocity="350" damage_type="1"/>
+	<bullet id="2" attack="20" velocity="350" damage_type="3"/>
+	<bullet id="3" attack="40" velocity="350" damage_type="6"/>
+	<bullet id="4" attack="20" velocity="350" damage_type="1"/>
+	<bullet id="5" attack="20" velocity="350" damage_type="2"/>
+	<bullet id="6" attack="20" velocity="350" damage_type="1"/>
+	<bullet id="7" attack="20" velocity="350" damage_type="1"/>
+	<bullet id="8" attack="20" velocity="450" damage_type="1"/>
+	<bullet id="9" attack="20" velocity="350" damage_type="1"/>
+	<bullet id="10" attack="20" velocity="3" damage_type="1"/>
+	<bullet id="11" attack="20" velocity="3" damage_type="9"/>
+	<bullet id="12" attack="20" velocity="3" damage_type="1"/>
+	<bullet id="13" attack="80" velocity="3" damage_type="2"/>
+	<bullet id="14" attack="80" velocity="3" damage_type="11"/>
+	<bullet id="15" attack="20" velocity="3" damage_type="1"/>
+	<bullet id="16" attack="20" velocity="3" damage_type="5"/>
+	<bullet id="17" attack="20" velocity="3" damage_type="1"/>
+	<bullet id="100" attack="0" velocity="400" damage_type="4"/>
+	<bullet id="0" attack="0" velocity="0" damage_type="0"/>
+	<bullet id="18" attack="20" velocity="350" damage_type="11"/>
+	<bullet id="19" attack="50" velocity="350" damage_type="6"/>
+</BulletData>

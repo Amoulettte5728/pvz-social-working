@@ -1,0 +1,26 @@
+Build 2026-10-07-rampage-results-rabbit-vases
+=============================================
+1. Rampage results crash (#1009 RampageGameOverPanel.showRampageBonusPanel):
+   the results screen always opens the "竞技抽奖" card lottery, which needs
+   pvzData.randomBonusSetting["2"] (the 9 prizes) and reply.randomBonus
+   (which card was won). Both are sent now; the won prize (coins / gems / exp
+   / a boost) is added to the save.
+   Tested: full round (score 14390 -> +1439 coins, +143 exp), lottery shown,
+   card picked, prize added.
+2. Level/exp: the save keeps TOTAL exp, but the client expects exp INTO the
+   current level. Sending the total with a low level made the client level up
+   again and again (endless 升级 popups, exp shooting up). The login now sends
+   the level and remainder computed from the total (4502 total = level 9,
+   102/1000).
+3. Rabbit imp: its frames now follow the game's states exactly:
+     1-97 arrive (your 1-97), 98-170 idle (your 98-125 looped - before, the
+     idle played your run-off and empty frames), 171-193 die (your 171-190),
+     194-230 charred (your charred file; was invisible), 231-275 leave (your
+     126-155 running off).
+   Position: drawn on the bonus zombie's hit box (x 80-115, y 80-180), where
+   peas hit it; its mask and portal moved with it.
+4. Vases: your Scary_Pot.png sheet is the rampage vase (vaseMc): normal "?"
+   vase, safe (leaf) vase, zombie vase, each with a half-sunk water frame;
+   vase_chunks.png shards are the breaking effects (brown / green).
+Not yet: the football helmets in the same zip; the rabbit was not seen in
+the test round (it appears at random).

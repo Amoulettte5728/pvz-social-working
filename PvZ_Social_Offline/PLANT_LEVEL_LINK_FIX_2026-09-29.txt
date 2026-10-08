@@ -1,0 +1,19 @@
+Plant animation + Almanac-to-level linkage patch
+
+Peashooter:
+- Plant_Peashooter.swf rebuilt from the supplied complete Peashooter sprite pvzPlant[1]-122.png.
+- 80-frame, 10 fps idle/breathing loop.
+- SymbolClass remains Plant_Peashooter; animated character 33 remains the plant timeline.
+
+Sunflower:
+- Plant_Sunflower.swf rebuilt from the supplied complete Sunflower sprite pvzPlant[1]-81.png.
+- 70-frame, 10 fps idle/sway loop.
+- SymbolClass remains Plant_Sunflower; animated character 35 remains the plant timeline.
+
+Almanac -> level plant linkage:
+- Plant Almanac card resourceId now carries groupId equal to its PlantsConfig seed ID.
+- The client CardPolicy.getCardPlantId() reads groupId, so the Almanac Peashooter card (resourceId 12) resolves to level seed/plant ID 12, Plant_Peashooter.
+- The Almanac Sunflower card (resourceId 2) resolves to level seed/plant ID 2, Plant_Sunflower.
+- The same direct-ID mapping is applied to the other Almanac entries where a matching PlantsConfig seed ID exists.
+
+Almanac ordering was also synchronized to the user's 38-card sequence in PlantData.xml. Ice-shroom (seed ID 38) is represented in PlantData but no Ice-shroom sprite/card asset was supplied in the source plant ZIP, so no invented Ice-shroom artwork was added.

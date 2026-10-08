@@ -1,0 +1,45 @@
+Level 3 (新兵训练3) now plays as a full level (build 2026-09-30-level3-full)
+======================================================================
+Before: level 3 is a shovel-only lesson. Tutorial.__shovelReset() declared
+MISSION_WIN as soon as the 3rd Peashooter was shovelled.
+
+Now, after the 3rd shovel (Tutorial.continueTutorial3AsLevel):
+- A seed bar appears with Peashooter + Sunflower (and the normal shovel slot).
+- Sun is set to 150. The three free tutorial Peashooters had been charged
+  against the starting 50 sun, leaving -250 (the counter showed "250").
+- Both cards are ready to use. Sun starts falling.
+- Lawn mowers roll in on all 5 rows (new SceneManager.enableLawnMowers();
+  level 3 normally has none).
+- The level's own 5 zombie waves start (the wave spawner was never
+  resumed in level 3).
+- "不要让僵尸进你的房子!" is shown.
+Beating the waves wins through the normal path, which also marks the tutorial
+complete (I1016) and gives level 3's reward (1000 coins, 19 exp as configured).
+
+Changed: Tutorial and SceneManager in main.swf, PVZEntry_1_.swf and
+townEntry_1_.swf (identical in all three). The build check was updated.
+Tested (Ruffle): shovel lesson -> seed bar, 150 sun, 5 mowers, planting works,
+zombie waves arrive, and a zombie reaching the house ends the game as usual.
+Not yet tested: playing all 5 waves through to the win screen.
+
+UPDATE (build 2026-09-30-level3-full-lawn-ui): full lawn + battle UI
+-------------------------------------------------------------------
+Reported: when level 3 is played right after level 2, only the middle three
+sod strips were rolled out (rows 1 and 5 bare dirt), and the 菜单 button and
+level progress bar were missing.
+
+- Lawn: PVZScene.resetMap stored the REQUESTED map id (1 = full lawn) while
+  levels 1-2 actually showed map 0 (the tutorial lawn with sod strips). So
+  level 3 asking for map 1 thought it was already loaded and kept level 2's
+  lawn. Now resetMap decides the real map (0 for levels 1-2) BEFORE comparing,
+  so level 3 loads the full lawn. Levels 1-2 behave as before.
+- Battle UI: the continuation now fires MISSION_START, the game's own "the
+  fight begins" event (as levels 1-2 do). It shows 菜单 / 跳过新手教程 and the
+  progress bar, resumes the zombie waves, and starts the stats timer and music.
+- Runs once per level: a Tutorial object left over from level 2 also counted
+  the shovels, so the continuation ran twice. Now it is guarded per mission.
+Tested (Ruffle) in the same session: level 2 -> skip -> town -> level 3 ->
+shovel lesson -> full lawn, 5 mowers, seed bar, 150 sun, 菜单, progress bar,
+zombies arriving; continuation logged once.
+Changed classes: Tutorial, SceneManager, PVZScene (all three game SWFs,
+compiled onto the SWFs from your uploaded working folder).

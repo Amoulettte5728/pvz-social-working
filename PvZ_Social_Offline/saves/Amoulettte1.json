@@ -1,0 +1,21 @@
+{
+  "tutorialStep": 499,
+  "skippedTutorial": true,
+  "money": 4000,
+  "gems": 500,
+  "level": 1,
+  "experience": 0,
+  "houses": [],
+  "levelsFinished": [],
+  "ownedBuildings": [],
+  "placedBuildings": [
+    {
+      "resourceId": 701,
+      "position": 321,
+      "buyId": 1000000,
+      "level": 1
+    }
+  ],
+  "nextBuildingId": 1000001,
+  "ownedFunctionCards": []
+}

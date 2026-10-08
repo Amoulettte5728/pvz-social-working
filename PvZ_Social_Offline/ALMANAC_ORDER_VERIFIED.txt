@@ -1,0 +1,56 @@
+ALMANAC ORDER / SEED PACKET FIX
+
+Reference: user-provided Almanac screenshots.
+
+Page 1 (30):
+01 Peashooter 100
+02 Sunflower 50
+03 Cherry Bomb 150
+04 Wall-nut 50
+05 Potato Mine 25
+06 Snow Pea 150
+07 Chomper 200
+08 Puff-shroom 0
+09 Fume-shroom 25
+10 Repeater 175
+11 Sun-shroom 25
+12 Scaredy-shroom 75
+13 Grave Buster 75
+14 Lily Pad 25
+15 Squash 50
+16 Spikeweed 100
+17 Jalapeno 25
+18 Torchwood 175
+19 Sea-shroom 0
+20 Cabbage-pult 125
+21 Coffee Bean 75
+22 Pumpkin 125
+23 Melon-pult 125
+24 Magnet-shroom 100
+25 Blover 100
+26 Cactus 300
+27 Tall-nut 125
+28 Twin Sunflower 150
+29 Gatling Pea 250
+30 Gloom-shroom 150
+
+Page 2 (9):
+31 Cattail 200
+32 Tangle Kelp 125
+33 Winter Melon 200
+34 Fire-shroom 75
+35 Icy Fume-shroom 300
+36 Super Chomper 250
+37 Vine Nut 150
+38 Future Star 125
+39 Clam Chuck 75
+
+Important: Future Star and Clam Chuck are page-2 entries 38 and 39.
+Their seed-packet images are supplied as item_40_1_.jpg and item_76_1_.jpg.
+Cattail packet image is item_44_1_.jpg.
+
+Town plot SWFs preserved:
+- Plant_Peashooter.swf
+- Plant_Sunflower.swf
+- Plant_Repeater.swf
+- Plant_SnowPeashooter.swf

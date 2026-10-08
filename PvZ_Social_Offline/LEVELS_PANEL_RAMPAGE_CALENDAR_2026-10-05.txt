@@ -1,0 +1,35 @@
+Build 2026-10-05-all-levels-rampage-calendar-slots
+=================================================
+1. Crash #1009 SCardListTopPanel.overSlotLock (hovering a locked seed slot):
+   the tooltip reads the slot price from item 337 + slot count; those items did
+   not exist. itemSettings["10"] now has them (slots 7/8/9/10 cost 750/1500/
+   3000/5000 coins). A crash here also broke the seed bar until a reload.
+
+2. All levels in the level panel, in every house:
+   - I1007 lists EVERY level (locked ones show the game's padlock), so all 4
+     pages appear ("1/4".."4/4").
+   - I1033 (house -> levels) now uses the rows' resourceIds (tutorials 1-3,
+     前院 11-20, 水池 31-36). Before, it used catalogue positions, so the pool
+     levels (31+) never matched and were hidden.
+   - The practice house (701) AND the 前院/水池 cabins and their upgrades
+     (706-715) host the whole adventure (before: only 701).
+
+3. Rampage gravestone (竞技) disappeared: TownFlow.resetRampageBt() only shows
+   it if some house's level list starts with 0 (the rampage house). The
+   practice house's list now starts with 0 (ignored by the level panel).
+
+4. Calendar did not open after a reload: ActivityPanel looked for its skin
+   UI_Activity only in the town's domain. It now also tries activityPanel's own
+   domain, the UI library and the current domain. Tested: it opens. (No
+   banner pictures exist offline, so the board is empty.)
+
+5. New-plant screen in 1-2 / 1-3: the reward only listed plants new to you;
+   your save already had Potato Mine / Snow Pea from the older reward order.
+   Now the first clear of a level always shows its reward plant(s).
+
+6. Your saves (Amoulettte, Amoulettte1, Groove) and avatars are in saves/
+   and avatars/.
+
+Tested (Ruffle) with your Amoulettte save: town loads with the 6 garden plots
+and the 竞技 gravestone; calendar opens; level panel shows all 19 levels on
+4 pages with trophies / padlocks.

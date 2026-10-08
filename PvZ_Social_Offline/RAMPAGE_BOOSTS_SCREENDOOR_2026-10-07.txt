@@ -1,0 +1,24 @@
+Rampage boosts + screen door (build 2026-10-07-rampage-boosts-screendoor)
+========================================================================
+1. Rampage boosts (增益): the 20 boosts of GamePropItem (653-672; your icons were
+   already in the folder) are now sent as item settings (type 5) with their
+   effect (BoostManager functionId + affect), e.g.
+     额外500/1000阳光 +500/+1000 sun, 前10/15秒无CD no card cooldown for 10/15 s,
+     额外30秒时间 +30 s, 卡片CD减少10%, 初始倍数加3, 超级安全罐子 (no zombies in
+     vases), 安全罐提示, 额外安全罐, 快落罐子, 时间奖励+2/+4秒, ...
+   Prices 500-4000 coins (offline choice). All 3 boost slots open.
+   - Buying (I5001): coins are taken, the boost is saved (save "boostItems")
+     and shows at once (the reply now carries your uid - replies with a
+     "user" object but no matching uid are silently dropped by the game,
+     which is why purchases did not register before).
+   - Owned boosts come back after a reload (login inventory type 5).
+   - Starting a round (I4009) uses up the boosts taken into it.
+   Tested: buy +500 sun -> x1 at once, coins 30000 -> 29500 -> equip in slot
+   (tooltip shown, sun 2000) -> round starts with 2000 sun; boost removed.
+2. Screen door: your sprites (door 1-3, outer/inner arm, hand) are the
+   Prop_Door1-3 props in pvzTD_1_.swf, placed per frame from Zombie.fla's
+   screen-door tracks moved onto the game's head clip
+   (td_art_generator/screendoor/, screendoor_map.json). Preview only - not yet
+   seen on a door zombie in a level.
+3. Text for the rampage "few plant cards" warning (RAMPAGE_ALERT).
+Known: 225 text keys used by the game are still missing from Localization.xml.

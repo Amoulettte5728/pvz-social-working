@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Data>
+	<eventList>
+		<event id="1" type="SetPlant"/>
+		<event id="2" type="HarvestPlant"/>
+		<event id="3" type="FinishedTDMission"/>
+		<event id="4" type="StealPlant"/>
+		<event id="5" type="SetBuilding"/>
+		<event id="6" type="GetCoinFromBuilding"/>
+		<event id="7" type="LiveInHouse"/>
+		<event id="8" type="UseItem"/>
+		<event id="9" type="VisitFriendTown"/>
+		<event id="10" type="CompleteQuestList"/>
+		<event id="11" type="CompleteRampage"/>
+		<event id="12" type="FriendsCount"/>
+	</eventList>
+</Data>

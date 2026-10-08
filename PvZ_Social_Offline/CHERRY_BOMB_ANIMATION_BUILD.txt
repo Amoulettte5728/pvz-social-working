@@ -1,0 +1,7 @@
+Cherry Bomb town animation build
+
+Source: provided CherryBomb.fla / XFL animation project.
+Compiled output: swf/20130627/town/plants/Plant_CherryBomb.swf
+Linkage class: TownPlant_CherryBomb
+Animation: 27 frames at 30 FPS, 80x80 stage.
+The original 43-byte placeholder is retained at DEV_BACKUPS/CherryBomb_placeholder_43byte.swf.

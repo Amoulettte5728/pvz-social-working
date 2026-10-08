@@ -1,0 +1,61 @@
+PvZ Social Offline — persistent levels + plant unlocks
+Build: 2026-09-30-official-projectiles-persistent-progress
+
+BASE
+----
+This update is based directly on the user's PvZ_Social_Offline_official_projectiles.zip.
+The projectile SWF and the three core SWFs were not rebuilt for this progression patch.
+
+SAVE DATA
+---------
+Each local or account save now has:
+  levelsFinished  : missions that have actually been won
+  unlockedLevels  : missions currently available (mission 1 + the next mission after every win)
+  unlockedPlants  : plant card resource IDs currently owned/unlocked
+
+Starting plant cards:
+  12 = Peashooter
+   2 = Sunflower
+
+PLANT REWARDS
+-------------
+Completing a mission adds the following plant card:
+  Mission 1 -> 17 Cherry Bomb
+  Mission 2 ->  9 Wall-nut
+  Mission 3 -> 18 Potato Mine
+  Mission 4 -> 16 Snow Pea
+  Mission 5 -> 20 Chomper
+  Mission 6 -> 24 Repeater
+  Mission 7 -> 13 Puff-shroom
+  Mission 8 ->  1 Sun-shroom
+  Mission 9 -> 14 Fume-shroom
+  Mission 10 -> 5 Grave Buster
+
+MISSION PANEL
+-------------
+services.I1007 now supplies missions 1..10. Each mission after #1 has the
+previous mission in preMissions, so the Adventure panel can reveal the next
+mission after its prerequisite is completed.
+
+services.I1001 returns only unlocked plant cards in items["0"]. All plant
+catalog entries remain available to the Almanac, but only saved unlocked
+cards are treated as owned by the client.
+
+PERSISTENCE
+-----------
+A normal TD win (services.I4003) saves the completed mission, unlocks the next
+mission, and grants its plant reward.
+The tutorial/build-complete callback (services.I1016) is treated as mission 1
+completion and uses the same persistence path. I1016Skip/I1016Accept also mark
+mission 1 complete so an account that skips/accepts the tutorial is not stuck.
+
+MIGRATION
+---------
+Older saves without the new fields are migrated in memory. Existing
+levelsFinished entries reconstruct their corresponding plant rewards, while
+Peashooter and Sunflower are always retained as the starting cards.
+
+STATIC DATA
+-----------
+Both swf/20110510/conf/MissionList.xml and swf/20130627/conf/MissionList.xml
+now contain missions 1..10 with sequential preMission links.

@@ -1,0 +1,22 @@
+Garden plot crash fix (build 2026-10-03-garden-cherrybomb-fix)
+=============================================================
+Error #1009 in BitmapUtil.drawMovieClip <- PlantBuilding.onGetPlantSwf when a
+Cherry Bomb seed (item 106) was placed in a garden plot.
+
+Two causes:
+1. Class name mismatch. Plant_CherryBomb.swf exports TownPlant_CherryBomb, but
+   the item data asked for Plant_CherryBomb, so the plot found no art.
+   -> server.py now reads each garden SWF's real exported class
+      (_town_plant_class / _swf_exported_classes) and sends that as
+      movieClipName, so ANY garden SWF works whether it exports Plant_X or
+      TownPlant_X. GamePropItem_1_.xml (+ zh-TW) item 106 updated too.
+2. The Plant_CherryBomb.swf in the folder was blank: 27 empty 80x80 frames,
+   nothing drawn. Empty frames are what make drawMovieClip fail.
+   -> New Plant_CherryBomb.swf (class TownPlant_CherryBomb): the original
+      Social crop-field layout (copied from the original Snow Pea plot) with
+      the PvZ 1 Cherry Bomb idle animation, 88 frames to match conf_1_.xml
+      <plantAnimator> id 106 (seedlings 1-20, young 21-54, grown 55-88).
+      Installed in the folder root, swf/20130627/town/plants/ and local/swf/v1/.
+   Rebuild: python td_art_generator/make_town_plants.py Plant_SnowPeashooter.swf <out> TownPlant_CherryBomb
+
+Not tested in a running town (no test save with a planted Cherry Bomb plot).
