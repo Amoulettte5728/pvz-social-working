@@ -1,0 +1,94 @@
+PvZ 1 FLA art in the battle (2026-09-29)
+========================================
+Build label: 2026-09-29-pvz1-fla-art
+pvzTD_1_.swf: 1,498,636 bytes, 131 classes.
+
+FROM THE PvZ 1 FLAs (original PopCap animations, frame-accurate):
+  Peashooter, Repeater (PeaShooter.fla), Snow Pea, Gatling Pea, Sunflower,
+  Twin Sunflower, Wall-nut, Tall-nut, Pumpkin (front and back),
+  Cherry Bomb, Potato Mine, Chomper, Squash, Puff-shroom, Sun-shroom,
+  Fume-shroom, Scaredy-shroom, Sea-shroom, Magnet-shroom, Gloom-shroom,
+  Torchwood, Jalapeno, Coffee Bean, Grave Buster, Lily Pad, Flower Pot,
+  Blover, Cactus, Cattail, Cabbage-pult, Melon-pult, Winter Melon,
+  Tangle Kelp, Marigold, plus the Sun, Lawn Mower and Pool Cleaner.
+  - Each FLA animation (idle, shooting, bite/chew/swallow, sleep, rise/armed,
+    explode, grow, lower...) is mapped onto the battle engine's frame numbers.
+    The Social Edition engine was built from these same files, so most plants
+    line up frame for frame.
+  - Pea shooters: head attached to the swaying body at the stem locator, the
+    way PvZ does it.
+  - Damage: Tall-nut and Pumpkin use their own cracked images. Wall-nut uses your
+    Social Edition cracked Wall-nuts (same 100x100 art).
+
+STILL FROM YOUR SOCIAL EDITION SPRITES (no PvZ 1 FLA exists):
+  Super Chomper, Flamewood, Vine Nut, Clam Chuck (Plant_Qiake), Future Star
+  (Plant_StarFruit), Icy Fume-shroom, Fire-shroom, Pickled Pepper, Spikeweed
+  (only a Spikerock FLA was supplied, which is a different plant).
+
+STILL SIMPLE PLACEHOLDERS: bullets (peas etc.), zombie armour props, effects.
+  Zombies use the game's own zombie SWFs (unchanged).
+
+Ice-shroom: an FLA exists, but the battle code has no Ice-shroom class, so it
+cannot be planted in levels.
+
+Tested (Ruffle): all five [OK]. Level 1: the PvZ 1 Peashooter, sun and lawn mower
+show and sit correctly. Two Peashooters fire peas at the incoming zombie.
+
+Rebuild: td_art_generator/ -> python make_td.py (Python 3 + Pillow)
+  fla_sources/    the 37 FLAs used (unpacked automatically on first run)
+  fla_plants.py   which FLA and which frames each battle clip uses
+  xflrender.py / xfldat.py / rawzip.py   FLA reader (works with the
+                  damaged zip index these FLAs have)
+  poses.py + plant_sprites/   Social Edition sprite plants
+  The generator reproduces pvzTD_1_.swf byte-for-byte.
+
+UPDATE: plants and mowers re-centred (build 2026-09-29-pvz1-fla-art-centered)
+------------------------------------------------------------------------------
+Problem: the FLA art uses PvZ 1's own origin, but the battle places each plant
+clip at (cell corner + PLANT_OFFSET_XY_LIST offset), and those offsets were made
+for the old Social Edition art (they range from [-32,-35] to [44,46]). So plants
+sat off-centre and low, and the mower hung below its row.
+
+Fix (in pvzTD_1_.swf only, no code changes):
+- Every plant is measured on the first frame of its idle animation, counting only
+  its visible pixels. It is then shifted so it is centred horizontally in its
+  75 px cell, with its base 76 px below the cell top (cell height 95). Coffee
+  Bean's base is at 60, so it sits on a mushroom.
+- Pumpkin and Clam Chuck back halves move with their fronts.
+- The Lawn Mower and Pool Cleaner are drawn at 90% size, sitting in their row just
+  inside the left screen edge.
+- All shifts are listed in td_art_generator (make_td.py writes <out>.shifts.json).
+  To nudge one plant, change CELL_CX / BASE_Y / BASE_Y_SPECIAL / MOWER_CENTER
+  in make_td.py and run it again.
+Tested (Ruffle): level 1, the Peashooter stands centred in its tile and the mower is
+in the row at the lawn's left edge.
+
+UPDATE 2026-09-30: why the mower still looked low (build 2026-09-30-centered-launcher-fix)
+------------------------------------------------------------------------------------------
+The screenshot matched the OLD pvzTD_1_.swf exactly (mower top about 28 px
+above the grass edge, Peashooter about 17 px right of the tile centre). The
+cause: launcher.py reused ANY server already running on port 9090 ("Running
+(existing)"). A server left running (hidden, pythonw) from the previous folder
+kept serving that folder's files.
+
+Fix:
+- server.py answers GET /__build with {"label", "folder"}.
+- launcher.py asks the running server which folder it serves. If it is another
+  folder (or an old build that doesn't answer), it stops that server and
+  starts this folder's own server.
+The art itself is unchanged from "-centered".
+
+UPDATE 2026-09-30: placement round 2 (build 2026-09-30-placement-2)
+------------------------------------------------------------------
+Compared against a PvZ 1 screenshot:
+- Plants are now centred on their BASE: the bottom quarter of the visible
+  plant (leaves and stem). Shooters' heads stick out forward like in PvZ, and
+  round plants stay centred.
+- Plant centre point is 30.5 px into the 75 px grid cell (the lawn's tile stripes
+  start 10 px left of the code grid and are about 77 px wide).
+- Plants raised 9 px: base 67 px below the cell top (Coffee Bean 51).
+- Lawn Mower / Pool Cleaner: 80% size, raised about 10 px, moved left onto the
+  pavement strip. A sliver is cut off at the screen edge, like the original
+  Social mower.
+Settings are in td_art_generator/make_td.py: CELL_CX, BASE_Y, BASE_Y_SPECIAL,
+MOWER_CENTER, MOWER_SCALE.

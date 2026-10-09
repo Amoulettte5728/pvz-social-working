@@ -1,0 +1,14 @@
+PLANT SELECTOR - NORMAL ADVENTURE FIX - 2026-10-02
+
+Normal Adventure missions (mission type 1) now explicitly advertise the
+existing client CardSelectorHelper/SCardListTopPanel flow as enabled.
+
+Tutorial missions (types 3/4/5) remain selector-free and keep their scripted
+flows.
+
+I1008 now provides explicit selector state plus the unlocked plant/card IDs,
+card slot count, empty selectedCards/oldCardsVOs state, and maxCardNum.
+The login ITEM_TYPE_CARD_SLOT (items["10"]) entries also include stable slot
+metadata while preserving the original six-slot length behavior.
+
+No tutorial mission behavior or plant animation SWFs were replaced.

@@ -1,0 +1,23 @@
+Build 2026-10-06-rabbit-portal-real-rampage
+===========================================
+1. Rabbit imp spawns from PvZ 1's portal: the bonus zombie's "portal" clip in
+   pvzTD_1_.swf is now built from Portal_Circle.fla (61 frames: open, pulse,
+   close - exactly what BonusZombie plays), centred on the rabbit.
+2. Rabbit on its real tile: the art used to sit 195 px right of the zombie's
+   actual position (the original Social art's offset). Now its feet stand on
+   the zombie's position like a normal zombie (offset -30,-71); BonusZombie's
+   masks and portal moved with it, and the portal is drawn behind the rabbit
+   (patched BonusZombie in main / PVZEntry_1_ / townEntry_1_ .swf).
+3. Save remembers the rampage tutorial (and other one-time tutorial steps):
+   I1019 bits are saved; finishing/skipping/replaying the training levels no
+   longer overwrites tutorialStep with 499 (which wiped the rampage bit 1024
+   and the difficulty-prompt bit) and replays of 新兵训练1/2 no longer reset it
+   to 1/2.
+4. Real rampage mode (after its tutorial): login data now has a rampage
+   tournament (currentTournamentId 1, tournaments["1"]: type 102, 2 minutes,
+   zombies with art + the rabbit, vases, preset plants), and I4010 (end of a
+   rampage run) pays coins/exp from the score.
+   NOT WORKING YET in my test: with the rampage tutorial done, clicking 竞技
+   does nothing (no panel, no error) - still being investigated.
+Zen Garden: ZenGarden.swf is the garden graphics resource and is always loaded
+(garden plots use it); there is no separate lock to remove.

@@ -1,0 +1,22 @@
+Build 2026-10-06-rampage-alert-texts
+====================================
+1. Rampage mode crashes (#1009 AbstractBasicZombie.initData / loopPlay in
+   BonusZombie): the rampage bonus zombie (id 100) had no art file and no
+   data entry.
+   - New pvzBonusZombie_1_.swf (folder root + local/swf/v1/), registered in
+     config.gz: built from pvzNormalZombie_1_.swf with the body/head/hand clips
+     renamed Zombie_Bonus / bonus_head / bonus_other (its other classes renamed
+     BonusCopy_* so they can never shadow the real ones).
+   - conf/ZombieData.xml (+ zh-TW): hidden entry zombieId 100 (奖励僵尸).
+2. The built-in rampage tutorial spawned newspaper (10) and pole-vaulter (8)
+   zombies, which have no art (they were invisible placeholders). They are
+   replaced by cone (5) and bucket (11) in PVZConfig.MISSION_TUTORIAL_RAMPAGE
+   (main / PVZEntry_1_ / townEntry_1_ .swf).
+3. Empty "注意" dialogs: 34 alert messages the game shows had no text in
+   Localization.xml (e.g. NOT_ENOUGH_CONTRACT_FEE, FINISH_PREV_FIRST,
+   LVL_NOT_ENOUGH, NOT_GROWN, NO_RAMPAGE_HOUSE, CONFIRM_SALE, shop errors ...).
+   All added (Simplified + Traditional), in all three Localization.xml copies.
+Tested (Ruffle, Amoulettte save): 竞技 -> rampage loads and runs (timer, score,
+next-wave button, boost panel), no missing zombie art, no errors.
+Known: the "升级为2级" popup shows on every login - the save has 1480 exp but
+level 1 (the level-up is not saved yet).

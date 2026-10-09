@@ -1,0 +1,184 @@
+=================================================================
+ PvZ Social Remake - Offline Kit - INSTALL GUIDE
+=================================================================
+
+This guide assumes you have NOT installed anything yet. Follow it
+top to bottom in order. It's written for Windows, since the game
+launcher is a .bat file and Flash Player only really runs there.
+
+Total setup time: about 10 minutes, most of it waiting for one
+download.
+
+
+-----------------------------------------------------------------
+STEP 0 - What's actually in this folder
+-----------------------------------------------------------------
+
+- main.swf, PVZEntry_1_.swf     -> the game itself (already patched
+                                    to run offline - see README.md
+                                    if you want the technical details)
+- a big pile of other .swf files -> game assets (buildings, zombies,
+                                    UI screens, etc.)
+- server.py, amf.py              -> a small local server that stands
+                                    in for the original game servers
+                                    (which no longer exist)
+- build_config.py                -> already run once for you, but
+                                    keep it around (see step 5)
+- Start_Server.bat                -> starts the local server
+- Start_Game.bat                  -> launches the actual game
+- Enable_Debug_Log.bat             -> one-click setup for the error log
+                                    (see Step 6 below)
+- View_Debug_Log.bat               -> shows what the loading bar was
+                                    doing / stuck on, after playing
+- flashplayer_32_sa_debug.exe     -> a standalone Flash Player, since
+                                    modern browsers can't run Flash
+                                    anymore
+- index.html, crossdomain.xml     -> leftover web files, not needed
+                                    for the steps below
+- README.md                       -> technical notes on what was
+                                    broken and how it was fixed
+
+
+-----------------------------------------------------------------
+STEP 1 - Install Python
+-----------------------------------------------------------------
+
+The local server is a small Python program, so you need Python
+installed once.
+
+1. Go to: https://www.python.org/downloads/
+2. Click the big yellow "Download Python" button (it picks the
+   right version for Windows automatically).
+3. Run the installer you just downloaded.
+4. IMPORTANT: on the very first installer screen, tick the box
+   that says "Add Python to PATH" at the bottom, BEFORE clicking
+   Install. This step is the one people usually miss.
+5. Click "Install Now" and let it finish.
+6. To check it worked: press the Windows key, type "cmd", press
+   Enter to open a black command-prompt window, then type:
+
+       python --version
+
+   and press Enter. If you see something like "Python 3.12.4",
+   it worked. If you see an error, Python isn't on PATH - rerun
+   the installer and make sure that checkbox is ticked.
+
+
+-----------------------------------------------------------------
+STEP 2 - Put this folder somewhere permanent
+-----------------------------------------------------------------
+
+Move (don't just leave it in Downloads) this whole folder
+somewhere you'll keep it, e.g.:
+
+       C:\Games\PvZSocial\
+
+Keep every file in the folder together - the game, the server,
+and the launchers all expect to sit next to each other.
+
+
+-----------------------------------------------------------------
+STEP 3 - Start the server
+-----------------------------------------------------------------
+
+1. Open the folder.
+2. Double-click Start_Server.bat.
+3. A black window will pop up and should say something like:
+
+       PvZ Social Remake Asset Server Active
+       Server running on: http://127.0.0.1:9090/
+
+4. LEAVE THIS WINDOW OPEN. Don't close it - it needs to keep
+   running the whole time you're playing. Minimize it if it's
+   in the way.
+
+If you instead see a red error mentioning "port" or "address
+already in use", something else on your PC is already using
+that port - restart your PC and try again.
+
+
+-----------------------------------------------------------------
+STEP 4 - Start the game
+-----------------------------------------------------------------
+
+1. With the server window still open from Step 3, double-click
+   Start_Game.bat.
+2. This opens the real Flash Player and loads the game.
+
+IMPORTANT: always launch it this way, through Start_Game.bat.
+Do NOT open index.html in Chrome/Firefox/Edge expecting it to
+work the same way - regular browsers cannot run the network code
+this game needs, even with Flash-emulator browser extensions. You
+will just get a login screen that never finishes loading.
+
+
+-----------------------------------------------------------------
+STEP 5 - If you add more game files later
+-----------------------------------------------------------------
+
+If you find and drop in more .swf or .xml files later (more
+buildings, missing pieces, etc.), re-run the setup step once so
+the server knows about them:
+
+1. Open the folder.
+2. Hold Shift, right-click an empty spot in the folder, choose
+   "Open PowerShell window here" (or "Open command window here").
+3. Type:
+
+       python build_config.py
+
+   and press Enter.
+
+This rebuilds config.gz to include whatever's now in the folder.
+Safe to run as many times as you want.
+
+
+-----------------------------------------------------------------
+STEP 6 (RECOMMENDED) - Turn on the debug log
+-----------------------------------------------------------------
+
+This game is a fan-made offline patch of something that normally
+needed a real company's servers, so you WILL hit points where
+something is missing or doesn't work yet. This step makes it
+possible to actually see what went wrong instead of guessing -
+main.swf has been patched with extra checkpoints that report
+exactly how far the loading bar got and what (if anything) it's
+stuck waiting on.
+
+1. Double-click Enable_Debug_Log.bat once. It sets everything up
+   automatically - no manual file editing needed.
+2. Close any Flash Player window that's currently open.
+3. Play as normal (Start_Server.bat, then Start_Game.bat).
+4. If something doesn't load, double-click View_Debug_Log.bat.
+   It shows just the [DEBUG-...] checkpoint lines - read them top
+   to bottom, and whichever one is LAST is where it's stuck. A
+   line like [DEBUG-LOADBAR-BLOCKED] or [DEBUG-IO-ERROR] names the
+   exact file that failed to load.
+
+That filtered output (or the Start_Server.bat console window,
+which now flags 404s with "!!!!") is the single most useful thing
+to share if you want help with the next issue.
+
+
+-----------------------------------------------------------------
+WHAT TO EXPECT
+-----------------------------------------------------------------
+
+This should get you from "doesn't start at all" to actually
+reaching (or getting very close to) the town screen.
+
+It will NOT be a complete, bug-free game:
+- The local server gives made-up placeholder answers for most
+  server calls beyond the login one, so some features won't have
+  correct data.
+- There's no real in-game text (Localization.xml is an empty
+  placeholder), so labels may be blank.
+- Actual tower-defense battles are missing three data files
+  (PlantData.xml, ZombieData.xml, BoostData.xml) that weren't
+  part of what's in this folder, so battles will likely fail once
+  you reach one.
+
+See README.md for the full technical writeup of all of this, and
+what to do next if you want to dig further (the "server.py"
+console window shows every call the game makes, in order, which
+is the easiest way to figure out what to add next).

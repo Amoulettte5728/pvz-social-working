@@ -1,0 +1,14 @@
+PvZ Social Offline - working folder
+===================================
+Base: latest working TD level-1 build (2026-09-29)
+
+Town plant plots (preserved):
+- Plant_Peashooter.swf
+- Plant_Sunflower.swf
+- Plant_Repeater.swf
+- Plant_SnowPeashooter.swf
+
+TD battle art:
+- pvzTD_1_.swf
+
+The four Plant_*.swf files above are the town plot assets. They are not to be treated as the TD battle plant sprite set.

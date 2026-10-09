@@ -1,0 +1,435 @@
+<?xml version='1.0' encoding='utf-8'?>
+<PlantData>
+  <plant id="12" positionId="1" name="豌豆射手" type="0" price="100" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="1" bulletAtt="20" damageType="1">
+    <PlantInfo>
+      <Brief>豌豆射手，你的第一道防線，發射豌豆攻擊殭屍。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>豌豆射手，你的第一道防線，發射豌豆攻擊殭屍。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="2" positionId="2" name="向日葵" type="0" price="50" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="0" bulletAtt="0" damageType="0">
+    <PlantInfo>
+      <Brief>向日葵，為你生產更多陽光的基礎作物。儘可能多地種植吧！</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>向日葵，為你生產更多陽光的基礎作物。儘可能多地種植吧！</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="1" positionId="11" name="陽光菇" type="0" price="25" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="0" bulletAtt="0" damageType="0">
+    <PlantInfo>
+      <Brief>陽光菇開始提供少量陽光，稍後提供正常數量陽光。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>陽光菇開始提供少量陽光，稍後提供正常數量陽光。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="3" positionId="33" name="雙胞向日葵" type="0" price="150" isDisplay="1" att="20" hp="300" refreshTime="50" bulletId="0" bulletAtt="0" damageType="0">
+    <PlantInfo>
+      <Brief>雙胞向日葵的陽光產量是普通向日葵的兩倍，使用次數：1次/張</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>雙胞向日葵的陽光產量是普通向日葵的兩倍，使用次數：1次/張</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="4" positionId="14" name="蓮葉" type="0" price="25" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="-1" bulletAtt="0" damageType="0">
+    <PlantInfo>
+      <Brief>蓮葉可以讓你在它上面種植非水生植物。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>蓮葉可以讓你在它上面種植非水生植物。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="5" positionId="13" name="咬咬碑" type="0" price="75" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="-1" bulletAtt="0" damageType="0">
+    <PlantInfo>
+      <Brief>咬咬碑會吃掉墓碑。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>咬咬碑會吃掉墓碑。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="6" positionId="24" name="磁力菇" type="0" price="100" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="-1" bulletAtt="0" damageType="0">
+    <PlantInfo>
+      <Brief>磁力菇可以用磁力吸取殭屍的頭盔等其它金屬物品。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>磁力菇可以用磁力吸取殭屍的頭盔等其它金屬物品。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="7" positionId="21" name="咖啡豆" type="0" price="75" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="-1" bulletAtt="0" damageType="0">
+    <PlantInfo>
+      <Brief>咖啡豆，可以喚醒睡眠中的蘑菇們。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>咖啡豆，可以喚醒睡眠中的蘑菇們。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="8" positionId="18" name="火炬樹樁" type="0" price="175" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="-1" bulletAtt="0" damageType="0">
+    <PlantInfo>
+      <Brief>火炬樹樁可以把穿過他的豌豆變成火球，讓豌豆造成兩倍傷害。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>火炬樹樁可以把穿過他的豌豆變成火球，讓豌豆造成兩倍傷害。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="9" positionId="4" name="小堅果" type="0" price="50" isDisplay="1" att="20" hp="4000" refreshTime="30" bulletId="-1" bulletAtt="0" damageType="0">
+    <PlantInfo>
+      <Brief>小堅果擁有足以保護其它植物的堅硬外殼。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>小堅果擁有足以保護其它植物的堅硬外殼。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="10" positionId="23" name="南瓜頭" type="0" price="125" isDisplay="1" att="20" hp="4000" refreshTime="30" bulletId="-1" bulletAtt="0" damageType="0">
+    <PlantInfo>
+      <Brief>南瓜頭，可以用他的外殼保護其他植物。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>南瓜頭，可以用他的外殼保護其他植物。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="11" positionId="22" name="高堅果" type="0" price="125" isDisplay="1" att="20" hp="8000" refreshTime="30" bulletId="-1" bulletAtt="0" damageType="0">
+    <PlantInfo>
+      <Brief>高堅果是重型壁壘植物，而且不會被跳過。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>高堅果是重型壁壘植物，而且不會被跳過。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="13" positionId="8" name="小噴菇" type="0" price="0" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="4" bulletAtt="20" damageType="1">
+    <PlantInfo>
+      <Brief>小噴菇是免費的，不過射程很近。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>小噴菇是免費的，不過射程很近。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="14" positionId="12" name="大噴菇" type="0" price="25" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="5" bulletAtt="20" damageType="2">
+    <PlantInfo>
+      <Brief>大噴菇噴出的氣泡可以穿透鐵絲網門。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>大噴菇噴出的氣泡可以穿透鐵絲網門。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="15" positionId="9" name="膽小菇" type="0" price="75" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="6" bulletAtt="20" damageType="1">
+    <PlantInfo>
+      <Brief>膽小菇是一種遠程射手，敵人接近後會躲起來。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>膽小菇是一種遠程射手，敵人接近後會躲起來。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="16" positionId="10" name="寒冰射手" type="0" price="150" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="2" bulletAtt="20" damageType="3">
+    <PlantInfo>
+      <Brief>發射寒冰豌豆攻擊敵人，並具有減速效果。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>發射寒冰豌豆攻擊敵人，並具有減速效果。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="17" positionId="3" name="櫻桃炸彈" type="0" price="150" isDisplay="1" att="1800" hp="300" refreshTime="50" bulletId="-1" bulletAtt="0" damageType="5">
+    <PlantInfo>
+      <Brief>櫻桃炸彈，能炸掉一定範圍內的全部殭屍。他們只有很短的引線，一種下就會立刻引爆，所以請把他們種在殭屍身邊。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>櫻桃炸彈，能炸掉一定範圍內的全部殭屍。他們只有很短的引線，一種下就會立刻引爆，所以請把他們種在殭屍身邊。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="18" positionId="5" name="土豆地雷" type="0" price="25" isDisplay="1" att="1800" hp="300" refreshTime="30" bulletId="-1" bulletAtt="0" damageType="5">
+    <PlantInfo>
+      <Brief>土豆地雷具有強大的威力，但是他們需要點時間來啟動自己。你應把他們種在殭屍前進的路上，當他們一被碰到就會爆炸。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>土豆地雷具有強大的威力，但是他們需要點時間來啟動自己。你應把他們種在殭屍前進的路上，當他們一被碰到就會爆炸。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="19" positionId="19" name="水兵菇" type="0" price="0" isDisplay="1" att="20" hp="300" refreshTime="30" bulletId="4" bulletAtt="20" damageType="1">
+    <PlantInfo>
+      <Brief>水兵菇，能夠發射短程孢子的水生植物。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>水兵菇，能夠發射短程孢子的水生植物。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="20" positionId="6" name="大嘴花" type="0" price="200" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="-1" bulletAtt="0" damageType="1">
+    <PlantInfo>
+      <Brief>大嘴花可以一口吞掉一整隻殭屍，但在他們咀嚼殭屍的時候很脆弱。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>大嘴花可以一口吞掉一整隻殭屍，但在他們咀嚼殭屍的時候很脆弱。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="21" positionId="16" name="地刺" type="0" price="100" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="-1" bulletAtt="0" damageType="1">
+    <PlantInfo>
+      <Brief>地刺可以扎破輪胎，並對踩到他的殭屍造成傷害。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>地刺可以扎破輪胎，並對踩到他的殭屍造成傷害。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="22" positionId="15" name="窩瓜" type="0" price="50" isDisplay="1" att="1800" hp="300" refreshTime="30" bulletId="-1" bulletAtt="0" damageType="1">
+    <PlantInfo>
+      <Brief>窩瓜會壓扁第一個接近它的殭屍。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>窩瓜會壓扁第一個接近它的殭屍。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="23" positionId="17" name="纏繞水草" type="0" price="125" isDisplay="1" att="1800" hp="300" refreshTime="30" bulletId="-1" bulletAtt="0" damageType="1">
+    <PlantInfo>
+      <Brief>纏繞水草是一種可以把接近他的殭屍拉進水中的水生植物。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>纏繞水草是一種可以把接近他的殭屍拉進水中的水生植物。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="24" positionId="7" name="雙重射手" type="0" price="175" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="1" bulletAtt="20" damageType="1">
+    <PlantInfo>
+      <Brief>雙重射手可以一次發射兩顆豌豆。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>雙重射手可以一次發射兩顆豌豆。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="25" positionId="20" name="火爆辣椒" type="0" price="25" isDisplay="1" att="1800" hp="300" refreshTime="50" bulletId="-1" bulletAtt="0" damageType="5">
+    <PlantInfo>
+      <Brief>火爆辣椒可以摧毀一整條在線的殭屍。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>火爆辣椒可以摧毀一整條在線的殭屍。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="27" positionId="27" name="仙人掌" type="0" price="300" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="7" bulletAtt="20" damageType="1">
+    <PlantInfo>
+      <Brief>仙人掌發射的穿刺彈可以用來打擊地面和空中目標</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>仙人掌發射的穿刺彈可以用來打擊地面和空中目標</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="33" positionId="25" name="三葉草" type="0" price="100" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="-1" bulletAtt="0" damageType="0">
+    <PlantInfo>
+      <Brief>一口氣吹走所有的氣球殭屍,依附在植物身上的靈符</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>一口氣吹走所有的氣球殭屍,依附在植物身上的靈符</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="41" positionId="26" name="西瓜投手" type="0" price="125" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="13" bulletAtt="80" damageType="2">
+    <PlantInfo>
+      <Brief>投出西瓜， 重重打擊成群的殭屍。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>投出西瓜， 重重打擊成群的殭屍。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="42" positionId="34" name="機槍射手" type="0" price="250" isDisplay="1" att="20" hp="300" refreshTime="50" bulletId="1" bulletAtt="20" damageType="1">
+    <PlantInfo>
+      <Brief>機槍射手一次可以發射四顆豌豆，使用次數：1次/張</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>機槍射手一次可以發射四顆豌豆，使用次數：1次/張</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="43" positionId="35" name="多嘴小蘑菇" type="0" price="150" isDisplay="1" att="20" hp="300" refreshTime="50" bulletId="-1" bulletAtt="20" damageType="2">
+    <PlantInfo>
+      <Brief>多嘴噴菇圍繞自身釋放大量煙霧，使用次數：1次/張</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>多嘴噴菇圍繞自身釋放大量煙霧，使用次數：1次/張</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="45" positionId="36" name="冰西瓜" type="0" price="200" isDisplay="1" att="20" hp="300" refreshTime="50" bulletId="14" bulletAtt="80" damageType="11">
+    <PlantInfo>
+      <Brief>冰西瓜可以造成範圍性的傷害並讓殭屍減速，使用次數：1次/張</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>冰西瓜可以造成範圍性的傷害並讓殭屍減速，使用次數：1次/張</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="57" positionId="37" name="超級大嘴花" type="0" price="250" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="-1" bulletAtt="0" damageType="1">
+    <PlantInfo>
+      <Brief>一口吞下面前所有的殭屍，但在咀嚼的時候非常脆弱，使用次數：1次/張</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>一口吞下面前所有的殭屍，但在咀嚼的時候非常脆弱，使用次數：1次/張</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="71" positionId="28" name="泡椒炸彈" type="0" price="125" isDisplay="1" att="1800" hp="300" refreshTime="50" bulletId="-1" bulletAtt="0" damageType="5">
+    <PlantInfo>
+      <Brief>泡椒炸彈可以摧毀一整條豎線上的殭屍。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>泡椒炸彈可以摧毀一整條豎線上的殭屍。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="72" positionId="29" name="寒冰大噴菇" type="0" price="300" isDisplay="0" att="20" hp="300" refreshTime="7.5" bulletId="18" bulletAtt="20" damageType="11">
+    <PlantInfo>
+      <Brief>寒冰大噴菇噴出的氣泡可以穿透鐵絲網門，並讓殭屍減速。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>寒冰大噴菇噴出的氣泡可以穿透鐵絲網門，並讓殭屍減速。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="38" positionId="29" name="冰蘑菇" type="0" price="0" isDisplay="1" att="20" hp="300" refreshTime="50" bulletId="-1" bulletAtt="0" damageType="0">
+    <PlantInfo>
+      <Brief>冰蘑菇</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>冰蘑菇</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="73" positionId="30" name="火蘑菇" type="0" price="75" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="3" bulletAtt="40" damageType="6">
+    <PlantInfo>
+      <Brief>火蘑菇能夠使啃食他的殭屍由內而外的自燃。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>火蘑菇能夠使啃食他的殭屍由內而外的自燃。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="74" positionId="31" name="烈焰樹樁" type="0" price="200" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="-1" bulletAtt="0" damageType="0">
+    <PlantInfo>
+      <Brief>烈焰樹樁可以把穿過他的豌豆變成比火球更強的烈焰球，增加豌豆的傷害。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>烈焰樹樁可以把穿過他的豌豆變成比火球更強的烈焰球，增加豌豆的傷害。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="75" positionId="32" name="藤蔓堅果" type="0" price="150" isDisplay="1" att="20" hp="4000" refreshTime="30" bulletId="-1" bulletAtt="0" damageType="0">
+    <PlantInfo>
+      <Brief>藤蔓堅果不但不會被跳過，還能阻擋並殺傷殭屍。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>藤蔓堅果不但不會被跳過，還能阻擋並殺傷殭屍。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <upgradeConfig>
+    <config lv="1" probability="100" moneyRequest="300" lvRequest="1" materialRequest="9002:1" protectionRequest="9003:1" probabilityUpCost="5" changeUpgradeCost="100" />
+    <config lv="2" probability="95" moneyRequest="600" lvRequest="2" materialRequest="9002:1" protectionRequest="9003:1" probabilityUpCost="5" changeUpgradeCost="100" />
+    <config lv="3" probability="90" moneyRequest="900" lvRequest="3" materialRequest="9002:1" protectionRequest="9003:1" probabilityUpCost="5" changeUpgradeCost="100" />
+    <config lv="4" probability="85" moneyRequest="1200" lvRequest="4" materialRequest="9002:1" protectionRequest="9003:1" probabilityUpCost="5" changeUpgradeCost="100" />
+    <config lv="5" probability="80" moneyRequest="1500" lvRequest="5" materialRequest="9002:1" protectionRequest="9003:1" probabilityUpCost="5" changeUpgradeCost="100" />
+    <config lv="6" probability="75" moneyRequest="1800" lvRequest="6" materialRequest="9002:1" protectionRequest="9003:1" probabilityUpCost="5" changeUpgradeCost="100" />
+    <config lv="7" probability="70" moneyRequest="2100" lvRequest="7" materialRequest="9002:1" protectionRequest="9003:1" probabilityUpCost="5" changeUpgradeCost="100" />
+    <config lv="8" probability="65" moneyRequest="2400" lvRequest="8" materialRequest="9002:1" protectionRequest="9003:1" probabilityUpCost="5" changeUpgradeCost="100" />
+    <config lv="9" probability="60" moneyRequest="2700" lvRequest="9" materialRequest="9002:1" protectionRequest="9003:1" probabilityUpCost="5" changeUpgradeCost="100" />
+    <config lv="10" probability="55" moneyRequest="3000" lvRequest="10" materialRequest="9002:1" protectionRequest="9003:1" probabilityUpCost="5" changeUpgradeCost="100" />
+  </upgradeConfig>
+  <plant id="30" positionId="0" name="捲心菜投手" type="0" price="125" isDisplay="0" att="20" hp="300" refreshTime="7.5" bulletId="13" bulletAtt="80" damageType="2">
+    <PlantInfo>
+      <Brief>投出西瓜， 重重打擊成群的殭屍。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>投出西瓜， 重重打擊成群的殭屍。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="40" positionId="0" name="未來星" type="0" price="125" isDisplay="0" att="20" hp="300" refreshTime="7.5" bulletId="1" bulletAtt="20" damageType="1">
+    <PlantInfo>
+      <Brief>雙重射手可以一次發射兩顆豌豆。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>雙重射手可以一次發射兩顆豌豆。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="44" positionId="0" name="貓尾草" type="0" price="200" isDisplay="0" att="20" hp="300" refreshTime="50" bulletId="2" bulletAtt="20" damageType="3">
+    <PlantInfo>
+      <Brief>發射寒冰豌豆攻擊敵人，並具有減速效果。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>發射寒冰豌豆攻擊敵人，並具有減速效果。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+  <plant id="76" positionId="38" name="淡定恰客" type="0" price="75" isDisplay="1" att="20" hp="4000" refreshTime="30" bulletId="-1" bulletAtt="0" damageType="0">
+    <PlantInfo>
+      <Brief>南瓜頭，可以用他的外殼保護其他植物。</Brief>
+      <GetMethodDesc>遊戲中獲得</GetMethodDesc>
+      <MidContent />
+      <Description>南瓜頭，可以用他的外殼保護其他植物。</Description>
+      <CardIntro recharge="普通" restraint="" sleepScene="" />
+    </PlantInfo>
+    <upgrade att="1" />
+  </plant>
+</PlantData>

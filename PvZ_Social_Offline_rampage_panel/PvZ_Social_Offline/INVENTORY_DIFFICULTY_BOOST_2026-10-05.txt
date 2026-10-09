@@ -1,0 +1,33 @@
+Build 2026-10-05-inventory-refresh-difficulties-boost
+=====================================================
+1. Plants locked in the almanac / seed screen after finishing a level:
+   after a level the game refreshes its inventory with I5004
+   (Flow.refreshMyItems). It CLEARS its owned-card list and rebuilds it from
+   the reply - the server answered I5004 generically (no items), so every
+   plant became locked until a reload (only the just-won plant, added by the
+   result screen, stayed). I5004 now returns exactly the login inventory.
+
+2. Rampage crash (#1009 BoostPanel.updateLock <- RamPageGame): the boost
+   panel reads unlock rules for its 3 boost slots (unlockRules["7"]) and the
+   owned boost-slot items (type 11). Both are now sent (all 3 slots open),
+   with catalogue entries for the slot items.
+
+3. Every difficulty for every level:
+   - the server sends one level-panel row per difficulty (id = resourceId*10
+     + difficulty, e.g. 110/111/112/113) - the confirm panel's tabs read one
+     row each;
+   - a 4th difficulty for the 地狱 (hell) tab: hard +30% coins/exp, +15 min
+     cooldown;
+   - MissionConfirmPanel no longer requires the previous difficulty to be won
+     ("FINISH_PREV_FIRST"); all four tabs open.
+
+4. Difficulty tutorial prompt (first level confirm panel after the tutorial):
+   its text REMINDING/TUTORIAL/FIRST_ADVENTURE was missing (added to all three
+   Localization.xml copies), and I1019 (the client marking the prompt as seen)
+   is now saved, so it shows once.
+
+Tested (Ruffle, Amoulettte save): 前院1-6 confirm panel opens, the prompt bit
+is saved (tutorialStep 499 -> 66035); the calendar now opens at login.
+Not yet tested: rampage mode (needs the boost panel), the I5004 refresh in a
+play-through, the 4 tabs one by one. An empty "注意" dialog can still appear
+in the confirm panel - its source is not found yet.

@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ZombieData>
+  <Zombie zombieId="2" positionId="1" name="普通殭屍" isDisplay="1" hp="270" weight="4000" value="1" firstAllowWave="1" propIdList="0" hpCoefficient="0.1">
+    <ZombieInfo>
+      <Brief>最基本的殭屍，蹣跚地向前移動。</Brief>
+      <Description>最基本的殭屍，蹣跚地向前移動。</Description>
+      <MidContent />
+      <ZombieIntro restraint="0" />
+    </ZombieInfo>
+  </Zombie>
+  <Zombie zombieId="3" positionId="2" name="殭屍" isDisplay="1" hp="270" weight="4000" value="1" firstAllowWave="1" propIdList="0" hpCoefficient="0.1">
+    <ZombieInfo>
+      <Brief>一種殭屍，具體種類有待確認。</Brief>
+      <Description>一種殭屍，具體種類有待確認。</Description>
+      <MidContent />
+      <ZombieIntro restraint="0" />
+    </ZombieInfo>
+  </Zombie>
+  <Zombie zombieId="4" positionId="3" name="旗幟殭屍" isDisplay="1" hp="270" weight="0" value="1" firstAllowWave="1" propIdList="4" hpCoefficient="0.1">
+    <ZombieInfo>
+      <Brief>舉著旗幟的殭屍，通常預示著一大波殭屍即將到來。</Brief>
+      <Description>舉著旗幟的殭屍，通常預示著一大波殭屍即將到來。</Description>
+      <MidContent />
+      <ZombieIntro restraint="0" />
+    </ZombieInfo>
+  </Zombie>
+  <Zombie zombieId="5" positionId="4" name="路障殭屍" isDisplay="1" hp="270" weight="4000" value="2" firstAllowWave="1" propIdList="1" hpCoefficient="0.1">
+    <ZombieInfo>
+      <Brief>頭戴路障的殭屍，比普通殭屍更耐打。</Brief>
+      <Description>頭戴路障的殭屍，比普通殭屍更耐打。</Description>
+      <MidContent />
+      <ZombieIntro restraint="0" />
+    </ZombieInfo>
+  </Zombie>
+  <Zombie zombieId="7" positionId="5" name="潛水殭屍" isDisplay="1" hp="270" weight="2000" value="3" firstAllowWave="10" propIdList="0" hpCoefficient="0.1">
+    <ZombieInfo>
+      <Brief>戴著潛水鏡的殭屍，能在水中行動。</Brief>
+      <Description>戴著潛水鏡的殭屍，能在水中行動。</Description>
+      <MidContent />
+      <ZombieIntro restraint="0" />
+    </ZombieInfo>
+  </Zombie>
+  <Zombie zombieId="8" positionId="6" name="撐杆跳殭屍" isDisplay="1" hp="500" weight="2000" value="2" firstAllowWave="5" propIdList="0" hpCoefficient="0.1">
+    <ZombieInfo>
+      <Brief>帶著撐杆的殭屍，能跳過第一個擋路的植物。</Brief>
+      <Description>帶著撐杆的殭屍，能跳過第一個擋路的植物。</Description>
+      <MidContent />
+      <ZombieIntro restraint="0" />
+    </ZombieInfo>
+  </Zombie>
+  <Zombie zombieId="9" positionId="7" name="海豚騎士殭屍" isDisplay="1" hp="500" weight="1500" value="3" firstAllowWave="10" propIdList="0" hpCoefficient="0.1">
+    <ZombieInfo>
+      <Brief>騎著海豚的殭屍，能躍過水麵上的植物。</Brief>
+      <Description>騎著海豚的殭屍，能躍過水麵上的植物。</Description>
+      <MidContent />
+      <ZombieIntro restraint="0" />
+    </ZombieInfo>
+  </Zombie>
+  <Zombie zombieId="10" positionId="8" name="讀報殭屍" isDisplay="1" hp="270" weight="1000" value="2" firstAllowWave="1" propIdList="3" hpCoefficient="0.1">
+    <ZombieInfo>
+      <Brief>拿著報紙的殭屍，報紙被打掉後移動速度會加快。</Brief>
+      <Description>拿著報紙的殭屍，報紙被打掉後移動速度會加快。</Description>
+      <MidContent />
+      <ZombieIntro restraint="0" />
+    </ZombieInfo>
+  </Zombie>
+  <Zombie zombieId="11" positionId="9" name="鐵桶殭屍" isDisplay="1" hp="270" weight="3000" value="4" firstAllowWave="1" propIdList="2" hpCoefficient="0.1">
+    <ZombieInfo>
+      <Brief>頭戴鐵桶的殭屍，防禦力很強。</Brief>
+      <Description>頭戴鐵桶的殭屍，防禦力很強。</Description>
+      <MidContent />
+      <ZombieIntro restraint="0" />
+    </ZombieInfo>
+  </Zombie>
+  <Zombie zombieId="13" positionId="10" name="鐵柵門殭屍" isDisplay="1" hp="270" weight="3500" value="4" firstAllowWave="1" propIdList="5" hpCoefficient="0.1">
+    <ZombieInfo>
+      <Brief>舉著鐵柵門的殭屍，能擋下不少傷害。</Brief>
+      <Description>舉著鐵柵門的殭屍，能擋下不少傷害。</Description>
+      <MidContent />
+      <ZombieIntro restraint="0" />
+    </ZombieInfo>
+  </Zombie>
+  <Zombie zombieId="14" positionId="11" name="橄欖球殭屍" isDisplay="1" hp="270" weight="2000" value="7" firstAllowWave="1" propIdList="6" hpCoefficient="0.1">
+    <ZombieInfo>
+      <Brief>身披橄欖球護具的殭屍，移動速度快且防禦力高。</Brief>
+      <Description>身披橄欖球護具的殭屍，移動速度快且防禦力高。</Description>
+      <MidContent />
+      <ZombieIntro restraint="0" />
+    </ZombieInfo>
+  </Zombie>
+  <Zombie zombieId="15" positionId="12" name="殭屍" isDisplay="1" hp="500" weight="1000" value="3" firstAllowWave="10" propIdList="12" hpCoefficient="0.1">
+    <ZombieInfo>
+      <Brief>一種殭屍，具體種類有待確認。</Brief>
+      <Description>一種殭屍，具體種類有待確認。</Description>
+      <MidContent />
+      <ZombieIntro restraint="0" />
+    </ZombieInfo>
+  </Zombie>
+  <Zombie zombieId="16" positionId="13" name="殭屍" isDisplay="1" hp="3000" weight="1500" value="10" firstAllowWave="15" propIdList="0" hpCoefficient="0.1">
+    <ZombieInfo>
+      <Brief>一種殭屍，具體種類有待確認。</Brief>
+      <Description>一種殭屍，具體種類有待確認。</Description>
+      <MidContent />
+      <ZombieIntro restraint="0" />
+    </ZombieInfo>
+  </Zombie>
+  <Zombie zombieId="18" positionId="14" name="全明星殭屍" isDisplay="1" hp="270" weight="1000" value="8" firstAllowWave="1" propIdList="7" hpCoefficient="0.1">
+    <ZombieInfo>
+      <Brief>全副武裝的橄欖球殭屍，防禦力比普通橄欖球殭屍更強。</Brief>
+      <Description>全副武裝的橄欖球殭屍，防禦力比普通橄欖球殭屍更強。</Description>
+      <MidContent />
+      <ZombieIntro restraint="0" />
+    </ZombieInfo>
+  </Zombie>
+  <Zombie zombieId="19" positionId="15" name="殭屍" isDisplay="1" hp="270" weight="0" value="2" firstAllowWave="1" propIdList="0" hpCoefficient="0.1">
+    <ZombieInfo>
+      <Brief>一種殭屍，具體種類有待確認。</Brief>
+      <Description>一種殭屍，具體種類有待確認。</Description>
+      <MidContent />
+      <ZombieIntro restraint="0" />
+    </ZombieInfo>
+  </Zombie>
+  <Zombie zombieId="20" positionId="16" name="紳士殭屍" isDisplay="1" hp="270" weight="4000" value="1" firstAllowWave="1" propIdList="0" hpCoefficient="0.1">
+    <ZombieInfo>
+      <Brief>蓄著鬍子、身穿大衣的殭屍。</Brief>
+      <Description>蓄著鬍子、身穿大衣的殭屍。</Description>
+      <MidContent />
+      <ZombieIntro restraint="0" />
+    </ZombieInfo>
+  </Zombie>
+  <Zombie zombieId="26" positionId="17" name="氣球殭屍" isDisplay="1" hp="270" weight="2000" value="2" firstAllowWave="1" propIdList="0" hpCoefficient="0.1">
+    <ZombieInfo>
+      <Brief>繫著氣球的殭屍，能飄過大多數植物的攻擊範圍。</Brief>
+      <Description>繫著氣球的殭屍，能飄過大多數植物的攻擊範圍。</Description>
+      <MidContent />
+      <ZombieIntro restraint="0" />
+    </ZombieInfo>
+  </Zombie>
+  <Zombie zombieId="34" positionId="18" name="殭屍" isDisplay="1" hp="270" weight="1000" value="8" firstAllowWave="1" propIdList="7" hpCoefficient="0.1">
+    <ZombieInfo>
+      <Brief>一種殭屍，具體種類有待確認。</Brief>
+      <Description>一種殭屍，具體種類有待確認。</Description>
+      <MidContent />
+      <ZombieIntro restraint="0" />
+    </ZombieInfo>
+  </Zombie>
+  <Zombie zombieId="36" positionId="19" name="殭屍" isDisplay="1" hp="6000" weight="1000" value="15" firstAllowWave="20" propIdList="0" hpCoefficient="0.1">
+    <ZombieInfo>
+      <Brief>一種殭屍，具體種類有待確認。</Brief>
+      <Description>一種殭屍，具體種類有待確認。</Description>
+      <MidContent />
+      <ZombieIntro restraint="0" />
+    </ZombieInfo>
+  </Zombie>
+  <Zombie zombieId="101" positionId="20" name="特殊殭屍" isDisplay="1" hp="270" weight="0" value="1" firstAllowWave="1" propIdList="0" hpCoefficient="0.1">
+    <ZombieInfo>
+      <Brief>一種特殊裝扮的殭屍，具體資料仍在收集中。</Brief>
+      <Description>一種特殊裝扮的殭屍，具體資料仍在收集中。</Description>
+      <MidContent />
+      <ZombieIntro restraint="0" />
+    </ZombieInfo>
+  </Zombie>
+  <Zombie zombieId="100" positionId="99" name="獎勵殭屍" isDisplay="0" hp="270" weight="0" value="1" firstAllowWave="1" propIdList="0" hpCoefficient="0.1">
+    <ZombieInfo>
+      <Brief>暴走模式中出現的獎勵殭屍,打倒它可以獲得額外獎勵。</Brief>
+      <Description>暴走模式中出現的獎勵殭屍,打倒它可以獲得額外獎勵。</Description>
+      <MidContent />
+      <ZombieIntro restraint="0" />
+    </ZombieInfo>
+  </Zombie>
+</ZombieData>

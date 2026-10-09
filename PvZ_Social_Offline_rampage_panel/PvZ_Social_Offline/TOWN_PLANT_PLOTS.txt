@@ -1,0 +1,11 @@
+TOWN PLANT PLOTS
+================
+These four SWFs are the town/garden plant plot graphics and are kept unchanged:
+
+Plant_Peashooter.swf
+Plant_Sunflower.swf
+Plant_Repeater.swf
+Plant_SnowPeashooter.swf
+
+Do not replace these four with the Tower Defense plant animation assets.
+The TD battle graphics are provided separately by pvzTD_1_.swf.
