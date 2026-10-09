@@ -888,6 +888,31 @@ def _func_house_card_settings():
     }
 
 
+# Plants are unlocked by (1) beating levels (_PLANT_REWARDS_BY_NAME),
+# (2) buying the card from the almanac for 199 gems (below).
+_PLANT_GEM_PRICE = 199
+_MONEY_TYPE_GEM = 1      # DataManager.MONEY_TYPE_GEM (COIN is 0) - unverified, see PLANT_UNLOCK_RULES.txt
+
+
+def _buy_plant_with_gems(pid):
+    """Unlock plant card ``pid`` for _PLANT_GEM_PRICE gems.
+    Returns True on success (also when already owned, without charging)."""
+    if pid not in _PLANT_ALMANAC_IDS:
+        return False
+    save = _normalize_progress(current_save())
+    owned = set(save["unlockedPlants"])
+    if pid in owned:
+        return True
+    gems = int(save.get("gems", 0) or 0)
+    if gems < _PLANT_GEM_PRICE:
+        print(f"[save] plant {pid} denied: need {_PLANT_GEM_PRICE} gems, have {gems}")
+        return False
+    owned.add(pid)
+    write_current_save(gems=gems - _PLANT_GEM_PRICE, unlockedPlants=sorted(owned))
+    print(f"[save] plant {pid} bought for {_PLANT_GEM_PRICE} gems")
+    return True
+
+
 # Plant almanac cards - resourceIds confirmed as real GamePropItem_1_.xml
 # entries (category 2, img="item_N", bigImg="CardBigImage_N", both files
 # now present) - see conf/PlantData.xml for the matching <plant> elements.
@@ -962,8 +987,8 @@ def _plant_almanac_card_settings():
             "seedPacketId": _PLANT_TO_SEED_RESOURCE.get(rid, 0),
             "type": 0,           # ITEM_TYPE_CARD
             "levelRequired": 0,
-            "money": 0,
-            "sellType": 0,
+            "money": _PLANT_GEM_PRICE,   # buy a locked plant straight from the almanac
+            "sellType": _MONEY_TYPE_GEM,
             # CardDetailPanel.enterContainer() reads this directly
             # (cardItemObj.earlyUnlockCost, no String() wrapper unlike every
             # sibling assignment in that function) - missing entirely
@@ -1513,7 +1538,7 @@ _PLANT_REWARDS_BY_NAME = {
     "前院1-8": [25],         # Jalapeno
     "前院1-9": [11],         # Tall-nut
     "前院1-10": [8],         # Torchwood
-    "水池1-1": [23], "水池1-6": [19],
+    "水池1-1": [23], "水池1-2": [21], "水池1-3": [15], "水池1-4": [1], "水池1-5": [7], "水池1-6": [19],
 }
 _ADVENTURE_CACHE = {}
 
@@ -1724,8 +1749,6 @@ def _normalize_progress(save):
             unlocked_levels.add(mid + 1)
 
     plants = {12, 2}
-    # All seeds are unlocked from the start (user request 2026-10-09).
-    plants.update(_PLANT_ALMANAC_IDS)
     for value in save.get("unlockedPlants", []):
         try:
             pid = int(value)
@@ -3400,7 +3423,10 @@ def _build_amf_response_locked(bodies):
                     resource_id = int(raw_arg)
                 except (ValueError, TypeError):
                     resource_id = None
-                if resource_id is not None and resource_id in _ALL_BUILDING_PRICES:
+                if resource_id is not None and resource_id in _PLANT_ALMANAC_IDS:
+                    if _buy_plant_with_gems(resource_id):
+                        payload = {"result": True, "items": [{"tid": resource_id, "count": 1}], "code": 0}
+                elif resource_id is not None and resource_id in _ALL_BUILDING_PRICES:
                     price = _ALL_BUILDING_PRICES[resource_id]
                     save = current_save()
                     owned = list(save.get("ownedBuildings", []))

@@ -1,0 +1,18 @@
+Plant unlock rules (2026-10-09)
+===============================
+Start: Peashooter (12) and Sunflower (2). Everything else is locked.
+
+1. Beat levels (conf/missions.json names -> _PLANT_REWARDS_BY_NAME in server.py):
+   Tutorial 2 -> Cherry Bomb; 1-1 Wall-nut; 1-2 Potato Mine; 1-3 Snow Pea; 1-4 Chomper;
+   1-5 Repeater; 1-6 Puff-shroom + Lily Pad; 1-7 Squash; 1-8 Jalapeno; 1-9 Tall-nut;
+   1-10 Torchwood; Pool 1-1 Tangle Kelp; 1-2 Spikeweed; 1-3 Scaredy-shroom;
+   1-4 Sun-shroom; 1-5 Coffee Bean; 1-6 Sea-shroom.
+   (Pool 1-2..1-5 rewards are new, chosen by me.)
+2. Buy from the almanac: every plant card costs 199 gems (_PLANT_GEM_PRICE).
+   Handled by services.I5001 with the plant id -> _buy_plant_with_gems().
+   Gems come from the save ("gems", 500 at start).
+
+UNVERIFIED: the almanac reads money/sellType from the card settings; sellType 1 is assumed
+to mean gems (_MONEY_TYPE_GEM). If the almanac shows a coin icon or no buy button, tell me
+and send the main.swf / PVZEntry_1_.swf so I can check DataManager.MONEY_TYPE_GEM.
+Not done: buying plant cards from the item shop (needs shop items + client check).
