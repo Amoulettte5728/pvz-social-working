@@ -526,6 +526,7 @@ except Exception as _e:
     _fla = None; print('FLA converter unavailable:', _e)
 _fla_shapes = {}
 SHIFTS = {}
+PLANT_ART_SCALE = {'Plant_PotatoMine': 0.8}   # per-plant size of the FLA art (1.0 = as drawn)
 FLA_POS = (0.0, 0.0)     # FLA stage coordinates are used as clip coordinates
 
 
@@ -564,6 +565,9 @@ def fla_frames(name, n):
     if name in ('LawnMower', 'PoolCleaner'):
         k = MOWER_SCALE
         frames = [[(key, im, tuple(v * k for v in M), a) for key, im, M, a in fr] for fr in frames]
+    if name in PLANT_ART_SCALE:          # re-centred on its base by plant_shift() below
+        k = PLANT_ART_SCALE[name]
+        frames = [[(key, im, tuple(v * k for v in M), a) for key, im, M, a in fr] for fr in frames]
     src = SHIFT_FROM.get(name)
     if src and use_fla(src):
         rf = _fla.build(src, idle_index(src, 999) + 1, ROWS); ref = rf[idle_index(src, len(rf))]
@@ -576,9 +580,15 @@ def fla_frames(name, n):
         if name.startswith('Bullet_'):
             bdx, bdy = bullet_shift(name); dx += bdx; dy += bdy
     SHIFTS[name] = (round(dx, 1), round(dy, 1))
+    _sh = None
+    if name.startswith('Plant_') and not src:
+        _bb = fla_bbox(frames[idle_index(name, len(frames))])
+        _sh = shadow_geometry(name, _bb[2] - _bb[0])
     out = []
     for fr in frames:
         parts = []
+        if _sh:
+            parts.append((_sh[0], (_sh[3], 0, 0, _sh[3], _sh[1], _sh[2]), 1.0))
         for key, im, M, a in fr:
             a_, b_, c_, d_, tx, ty = M
             parts.append((fla_shape(key, im), (a_, b_, c_, d_, tx + FLA_POS[0] + dx, ty + FLA_POS[1] + dy), a))
@@ -586,6 +596,38 @@ def fla_frames(name, n):
             parts.append((fla_shape(('blank',), _blank_img()), (1, 0, 0, 1, 0, 0), 1.0))
         out.append(parts)
     return out
+
+
+# ---- plant shadow (your plant_shadow.png) under every battle plant ----
+# Drawn as the bottom layer of every frame of each Plant_* clip, centred on the
+# plant's base point (the same point plant_shift() puts at CELL_CX / BASE_Y)
+# and scaled to the plant's width. Plants that sit in water, on another plant
+# or flat on the ground get none.
+SHADOW_SKIP = {'Plant_Pumpkin', 'Plant_Pumpkin_back', 'Plant_Qiake', 'Plant_Qiake_back', 'Plant_QK',
+               'Plant_CoffeeBean', 'Plant_LilyPad', 'Plant_Spikeweed', 'Plant_GraveBuster',
+               'Plant_Tanglekelp', 'Plant_SeaShroom', 'Plant_Cattail'}
+SHADOW_W_FACTOR, SHADOW_W_MIN, SHADOW_W_MAX = 0.85, 40.0, 72.0
+SHADOW_DROP = 0.6           # shadow top = base - (1 - SHADOW_DROP) * height: centre a little below the lowest pixel
+_shadow_img = [None]
+
+
+def shadow_geometry(name, plant_w):
+    """(shape id, x, y, scale) of the shadow in final clip coordinates, or None."""
+    if name in SHADOW_SKIP or not name.startswith('Plant_'):
+        return None
+    if _shadow_img[0] is None:
+        from PIL import Image as _I
+        sp = os.path.join(HERE, 'plant_shadow.png')
+        if not os.path.exists(sp):
+            return None
+        _shadow_img[0] = _I.open(sp).convert('RGBA')
+    im = _shadow_img[0]
+    w = max(SHADOW_W_MIN, min(SHADOW_W_MAX, plant_w * SHADOW_W_FACTOR))
+    s = w / float(im.width)
+    ox, oy = (OFFS.get(name) or [0, 0])[:2]
+    bx, by = CELL_CX - ox, BASE_Y_SPECIAL.get(name, BASE_Y) - oy
+    h = im.height * s
+    return fla_shape(('plant_shadow',), im), bx - w / 2.0, by - h * (1 - SHADOW_DROP), s
 
 
 def _blank_img():
@@ -728,6 +770,11 @@ for name, fn in PLANTS.items():
         dx, dy = plant_shift(src, pose_bbox(ref), _items)
         SHIFTS[name] = (round(dx, 1), round(dy, 1))
         frames = [[(p[0], p[1] + dx, p[2] + dy) + tuple(p[3:]) for p in fr] for fr in frames]
+        if src == name:
+            _pb = pose_bbox(ref)
+            _sh = shadow_geometry(name, _pb[2] - _pb[0])
+            if _sh:
+                frames = [[P(_sh[0], _sh[1], _sh[2], _sh[3], _sh[3])] + fr for fr in frames]
     else:
         frames = [fn(plant_state(name, f)) for f in range(1, n + 1)]
     add_clip(name, frames); report[name] = n
@@ -988,6 +1035,30 @@ def flag_prop_frames(state):
 # cone_bucket_map.json: per zombie frame (1..292) the matrix of the cone/bucket image
 # in zombie coordinates = Zombie.fla's head->cone/bucket relationship, scaled (x1.16)
 # and moved onto the game head (measured from pvzNormalZombie general_head).
+def screendoor_prop_frames(state):
+    """Screen door + the arms/hand holding it (your PvZ 1 sprites), placed per
+    zombie frame from Zombie.fla's screen-door tracks moved onto the game's
+    head clip (screendoor_map.json, same head mapping as the cone/bucket)."""
+    import os as _os, json as _js
+    from PIL import Image as _I
+    here = _os.path.dirname(_os.path.abspath(__file__))
+    mp_path = _os.path.join(here, 'screendoor_map.json')
+    d = _os.path.join(here, 'screendoor')
+    if not _os.path.exists(mp_path):
+        return None
+    names = {'anim_screendoor': f'Zombie_screendoor{state}', 'Zombie_outerarm_screendoor': 'Zombie_outerarm_screendoor',
+             'Zombie_innerarm_screendoor': 'Zombie_innerarm_screendoor',
+             'Zombie_innerarm_screendoor_hand': 'Zombie_innerarm_screendoor_hand'}
+    shapes = {}
+    for layer, fn in names.items():
+        p = _os.path.join(d, fn + '.png')
+        if not _os.path.exists(p):
+            return None
+        shapes[layer] = fla_shape(('screendoor', fn), _I.open(p).convert('RGBA'))
+    mp = _js.load(open(mp_path))
+    return [[(shapes[ln], tuple(M), 1.0) for ln, M in mp[str(f)]] for f in range(1, 293)]
+
+
 def headgear_prop_frames(kind, state):
     import os as _os, json as _js
     from PIL import Image as _I
@@ -1002,13 +1073,52 @@ def headgear_prop_frames(kind, state):
     return [[(sid, tuple(mp[str(f)]), 1.0)] for f in range(1, 293)]
 
 
+# ---- football / black ("giga") football helmets: your sprites placed with the
+# per-frame helmet transform of the game's own Prop_Football clips
+# (football_map.json, measured from pvzFootballZombie_1_.swf, 87 frames).
+FOOTBALL_IMAGES = {False: {1: 'Zombie_football_helmet.png', 2: 'Zombie_football_helmet2.png', 3: 'Zombie_football_helmet3.png'},
+                   True: {1: 'Classic_black_football_helmet.png', 2: 'Zombies_football_helmetb2.png', 3: 'Zombie_Football_helmetb3.png'}}
+FOOTBALL_DRAW_W = 52.8   # on-screen width (px) of the original helmet bitmap (66 px drawn at 0.8)
+
+
+def football_prop_frames(black, state):
+    import os as _os, json as _js
+    from PIL import Image as _I
+    here = _os.path.dirname(_os.path.abspath(__file__))
+    mp_path = _os.path.join(here, 'football_map.json')
+    img_path = _os.path.join(here, 'football', FOOTBALL_IMAGES[black][state])
+    if not (_os.path.exists(mp_path) and _os.path.exists(img_path)):
+        return None
+    mp = _js.load(open(mp_path))['place']
+    im = _I.open(img_path).convert('RGBA')
+    s = FOOTBALL_DRAW_W / 66.0 * (66.0 / im.width)
+    sid = fla_shape(('football', black, state), im)
+    out = []
+    for f in range(1, 88):
+        a, b, c, d, tx, ty = mp[str(f)]
+        out.append([(sid, (a * s, b * s, c * s, d * s, tx, ty), 1.0)])
+    return out
+
+
 for pname, (color, kind, n) in PROPS.items():
+    if pname == 'Prop_Door':
+        built = [screendoor_prop_frames(st_) for st_ in (1, 2, 3)]
+        if all(b is not None for b in built):
+            for st_, fr_ in zip((1, 2, 3), built):
+                c_ = cid(); defs.append(define_sprite_raw(c_, fr_)); exports.append((c_, f'Prop_Door{st_}')); report[f'Prop_Door{st_}'] = 292
+            continue
     if pname in ('Prop_Cone', 'Prop_Bucket'):
         kind = 'cone' if pname == 'Prop_Cone' else 'bucket'
         built = [headgear_prop_frames(kind, st_) for st_ in (1, 2, 3)]
         if all(b is not None for b in built):
             for st_, fr_ in zip((1, 2, 3), built):
                 c_ = cid(); defs.append(define_sprite_raw(c_, fr_)); exports.append((c_, f'{pname}{st_}')); report[f'{pname}{st_}'] = 292
+            continue
+    if pname in ('Prop_Football', 'Prop_BlackFootball'):
+        built = [football_prop_frames(pname == 'Prop_BlackFootball', st_) for st_ in (1, 2, 3)]
+        if all(b is not None for b in built):
+            for st_, fr_ in zip((1, 2, 3), built):
+                c_ = cid(); defs.append(define_sprite_raw(c_, fr_)); exports.append((c_, f'{pname}{st_}')); report[f'{pname}{st_}'] = 87
             continue
     if pname == 'Prop_Flag':
         ok = True
@@ -1084,6 +1194,124 @@ EFFECTS.update({
     'bonus_mask': [[P(shp('r', 0, 0, 100, 140, fill=BLACK, line=None), 0, 0)]],
     'vaseMc': [[P(shp('e', 0, 0, 24, 30, fill=(180, 120, 80, 255), lw=2), 30, 40), P(shp('r', 0, 0, 20, 8, fill=(150, 95, 60, 255)), 20, 8)]],
 })
+# ---- rampage vases (your PvZ Scary_Pot.png sheet + vase_chunks.png) ----
+def _vase_sheet():
+    import os as _os
+    from PIL import Image as _I
+    here = _os.path.dirname(_os.path.abspath(__file__))
+    p = _os.path.join(here, 'vase', 'Scary_Pot.png'); c = _os.path.join(here, 'vase', 'vase_chunks.png')
+    if not (_os.path.exists(p) and _os.path.exists(c)):
+        return None, None
+    return _I.open(p).convert('RGBA'), _I.open(c).convert('RGBA')
+
+
+def vase_frames():
+    """vaseMc: 4 frames per vase type (Vase.setProperty: frame = type*4-3,
+    +2 when it lands in water). Type 1 = normal "?" vase, 2 = safe (leaf)
+    vase, 3 = zombie vase. Vase local coords: centre x ~42, bottom y ~85
+    (steam at x-23,y+78; splash at x+42,y+67)."""
+    sheet, _ = _vase_sheet()
+    if sheet is None:
+        return None
+    cw, ch = sheet.width // 3, sheet.height // 2
+    k = 0.8
+    frames = []
+    for col in (0, 1, 2):
+        front = sheet.crop((col * cw, ch, (col + 1) * cw, 2 * ch))
+        bb = front.getchannel('A').getbbox(); front = front.crop(bb)
+        sid = fla_shape(('vase', col), front)
+        wet = front.crop((0, 0, front.width, int(front.height * 0.62)))
+        wid = fla_shape(('vase_wet', col), wet)
+        w, h = front.width * k, front.height * k
+        M = (k, 0, 0, k, 42 - w / 2.0, 85 - h)
+        Mw = (k, 0, 0, k, 42 - w / 2.0, 85 - h + h * 0.30)    # sunk ~30 % in water
+        frames += [[(sid, M, 1.0)], [(sid, M, 1.0)], [(wid, Mw, 1.0)], [(wid, Mw, 1.0)]]
+    return frames
+
+
+def vase_break_frames(row):
+    """Shards of the vase (vase_chunks.png row: 0 brown, 1 green, 2 dark)
+    flying out from the vase centre with gravity, fading out (14 frames)."""
+    _, chunks = _vase_sheet()
+    if chunks is None:
+        return None
+    import random as _r
+    rnd = _r.Random(7 + row)
+    n = chunks.width // 32
+    sids = [fla_shape(('vchunk', row, i), chunks.crop((i * 32, row * 32, i * 32 + 32, row * 32 + 32))) for i in range(n)]
+    parts = []
+    for i in range(12):
+        ang = rnd.uniform(-math.pi * 0.95, -math.pi * 0.05)
+        sp = rnd.uniform(3.0, 7.5)
+        parts.append((sids[i % n], 42 + rnd.uniform(-12, 12), 50 + rnd.uniform(-15, 15),
+                      math.cos(ang) * sp, math.sin(ang) * sp, rnd.uniform(-0.4, 0.4)))
+    frames = []
+    for f in range(14):
+        fr = []
+        for sid, x0, y0, vx, vy, spin in parts:
+            x = x0 + vx * f; y = y0 + vy * f + 0.6 * f * f
+            a = spin * f; c, s_ = math.cos(a), math.sin(a)
+            alpha = 1.0 if f < 8 else max(0.05, 1.0 - (f - 7) / 7.0)
+            fr.append((sid, (c * 0.8, s_ * 0.8, -s_ * 0.8, c * 0.8, x - 13, y - 13), alpha))
+        frames.append(fr)
+    return frames
+
+
+# ---- hammer (your Hammer.swf): one whack per vase ----
+# hammer_map.json = the 17 frames of Hammer.swf's main timeline (3 bitmaps:
+# end cap, head, handle). Your timeline order is: 1 rest, 2-3 lying on the
+# target, 4-9 lift back up, 10-15 small bounce, 16-17 swing down. The game
+# plays "Hammer" exactly once and breaks the vase when it ends (Vase.whack on
+# EFFECT_COMPLETE), so "Hammer" = 10..17,2,3 (wind-up, swing, impact) and the
+# lift-back 4..9 is drawn at the start of vase_break / vase_break2, so the
+# swing reads as one continuous cycle and never repeats.
+HAMMER_SWING = [10, 11, 12, 13, 14, 15, 16, 17, 2, 3]
+HAMMER_AFTER = [4, 5, 6, 7, 8, 9]
+HAMMER_SHIFT = (-45.0, -78.0)    # moves your hammer onto the vase (game anchor = vase + (47, 65))
+HAMMER_ANCHOR = (47.0, 65.0)
+
+
+def hammer_frames(seq, ox=0.0, oy=0.0, fade_tail=0):
+    import os as _os, json as _js
+    from PIL import Image as _I
+    here = _os.path.dirname(_os.path.abspath(__file__))
+    mp_path = _os.path.join(here, 'hammer_map.json')
+    if not _os.path.exists(mp_path):
+        return None
+    mp = _js.load(open(mp_path))['frames']
+    sids = {}
+    for n in ('hammer_end', 'hammer_head', 'hammer_handle'):
+        ip = _os.path.join(here, 'hammer', n + '.png')
+        if not _os.path.exists(ip):
+            return None
+        sids[n] = fla_shape(('hammer', n), _I.open(ip).convert('RGBA'))
+    dx, dy = HAMMER_SHIFT[0] + ox, HAMMER_SHIFT[1] + oy
+    out = []
+    for f in seq:
+        out.append([(sids[n], (a, b, c, d, tx + dx, ty + dy), 1.0) for n, a, b, c, d, tx, ty in mp[f - 1]])
+    for k in range(fade_tail):
+        al = 1.0 - (k + 1) / (fade_tail + 1.0)
+        out.append([(s, m, al) for s, m, _ in out[-1]] if k == 0 else [(s, m, al) for s, m, _ in out[len(seq) - 1]])
+    return out
+
+
+def with_hammer_after(frames):
+    hf = hammer_frames(HAMMER_AFTER, HAMMER_ANCHOR[0], HAMMER_ANCHOR[1], fade_tail=2)
+    if hf is None or frames is None:
+        return frames
+    n = max(len(frames), len(hf))
+    return [(frames[i] if i < len(frames) else []) + (hf[i] if i < len(hf) else []) for i in range(n)]
+
+
+_VASE_BUILT = {}
+for _vn, _vf in (('vaseMc', vase_frames), ('vase_break', lambda: with_hammer_after(vase_break_frames(0))), ('vase_break2', lambda: with_hammer_after(vase_break_frames(1))),
+                 ('Hammer', lambda: hammer_frames(HAMMER_SWING))):
+    _fr = _vf()
+    if _fr is not None:
+        _c = cid(); defs.append(define_sprite_raw(_c, _fr)); exports.append((_c, _vn)); report[_vn] = len(_fr)
+        _VASE_BUILT[_vn] = True
+EFFECTS = {k: v for k, v in EFFECTS.items() if k not in _VASE_BUILT}
+
 for name, frames in EFFECTS.items():
     if use_fla(name):
         n_ = _fla.OTHER[name].get('frames', len(frames)); add_fla_clip(name, n_); report[name] = n_; continue
@@ -1114,6 +1342,19 @@ try:
             break
 except Exception as _e:
     print('Locked bitmap not added:', _e)
+
+# Level-entry transition (your sunflower_transition.png): black with a
+# transparent sunflower hole; PVZEntry.playLevelReveal() zooms it out over the
+# level once loading finishes (ResourceCache.getBitmap("SunflowerTransition")).
+try:
+    from PIL import Image as _Itr
+    _tp = os.path.join(HERE, 'sunflower_transition.png')
+    if os.path.exists(_tp):
+        _tim = _Itr.open(_tp).convert('RGBA')
+        _tid = cid(); defs.append(define_bits_lossless2(_tid, _tim))
+        bitmap_exports.append((_tid, 'SunflowerTransition'))
+except Exception as _e:
+    print('SunflowerTransition not added:', _e)
 
 data = build_swf(defs, exports, bitmap_exports=bitmap_exports)
 open(OUT, 'wb').write(data)

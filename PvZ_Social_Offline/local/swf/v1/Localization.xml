@@ -85,6 +85,7 @@
 </TIPS>
 	<UI>
 		<TOWN>
+			<GOTO_FRIEND_TOWN>正在前往####的小镇...</GOTO_FRIEND_TOWN>
 			<TOWN_NAME>####</TOWN_NAME>
 			<RP_BT_TITLE>大乱斗</RP_BT_TITLE>
 			<RP_BT_TIPS>点击这里参加大乱斗!</RP_BT_TIPS>
@@ -160,7 +161,11 @@
 		</TD>
 </UI>
 	<POPUP>
+		<PUBLIC>
+			<RAMPAGE_ALERT>你的植物卡片还比较少,暴走模式可能会很难!确定要开始吗?</RAMPAGE_ALERT>
+		</PUBLIC>
 		<MISSION_CENTER>
+			<FRIEND_TOWN_NO_ADVENTURE>这是好友的小镇,不能在这里进行冒险关卡!</FRIEND_TOWN_NO_ADVENTURE>
 			<LVL_REQUIRED>需要等级:####</LVL_REQUIRED>
 			<PREV_MISSION>需要先完成:</PREV_MISSION>
 			<FINISH_PREV>请先完成"####"</FINISH_PREV>

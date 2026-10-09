@@ -20,7 +20,7 @@
     </PlantInfo>
     <upgrade att="1" />
   </plant>
-  <plant id="1" positionId="11" name="阳光菇" type="0" price="25" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="0" bulletAtt="0" damageType="0">
+  <plant id="1" positionId="11" name="阳光菇" type="2" price="25" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="0" bulletAtt="0" damageType="0">
     <PlantInfo>
       <Brief>阳光菇开始提供少量阳光，稍后提供正常数量阳光。</Brief>
       <GetMethodDesc>游戏中获得</GetMethodDesc>
@@ -60,7 +60,7 @@
     </PlantInfo>
     <upgrade att="1" />
   </plant>
-  <plant id="6" positionId="24" name="磁力菇" type="0" price="100" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="-1" bulletAtt="0" damageType="0">
+  <plant id="6" positionId="24" name="磁力菇" type="2" price="100" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="-1" bulletAtt="0" damageType="0">
     <PlantInfo>
       <Brief>磁力菇可以用磁力吸取僵尸的头盔等其它金属物品。</Brief>
       <GetMethodDesc>游戏中获得</GetMethodDesc>
@@ -120,7 +120,7 @@
     </PlantInfo>
     <upgrade att="1" />
   </plant>
-  <plant id="13" positionId="8" name="小喷菇" type="0" price="0" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="4" bulletAtt="20" damageType="1">
+  <plant id="13" positionId="8" name="小喷菇" type="2" price="0" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="4" bulletAtt="20" damageType="1">
     <PlantInfo>
       <Brief>小喷菇是免费的，不过射程很近。</Brief>
       <GetMethodDesc>游戏中获得</GetMethodDesc>
@@ -130,7 +130,7 @@
     </PlantInfo>
     <upgrade att="1" />
   </plant>
-  <plant id="14" positionId="12" name="大喷菇" type="0" price="25" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="5" bulletAtt="20" damageType="2">
+  <plant id="14" positionId="12" name="大喷菇" type="2" price="25" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="5" bulletAtt="20" damageType="2">
     <PlantInfo>
       <Brief>大喷菇喷出的气泡可以穿透铁丝网门。</Brief>
       <GetMethodDesc>游戏中获得</GetMethodDesc>
@@ -140,7 +140,7 @@
     </PlantInfo>
     <upgrade att="1" />
   </plant>
-  <plant id="15" positionId="9" name="胆小菇" type="0" price="75" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="6" bulletAtt="20" damageType="1">
+  <plant id="15" positionId="9" name="胆小菇" type="2" price="75" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="6" bulletAtt="20" damageType="1">
     <PlantInfo>
       <Brief>胆小菇是一种远程射手，敌人接近后会躲起来。</Brief>
       <GetMethodDesc>游戏中获得</GetMethodDesc>
@@ -180,7 +180,7 @@
     </PlantInfo>
     <upgrade att="1" />
   </plant>
-  <plant id="19" positionId="19" name="水兵菇" type="0" price="0" isDisplay="1" att="20" hp="300" refreshTime="30" bulletId="4" bulletAtt="20" damageType="1">
+  <plant id="19" positionId="19" name="水兵菇" type="2" price="0" isDisplay="1" att="20" hp="300" refreshTime="30" bulletId="4" bulletAtt="20" damageType="1">
     <PlantInfo>
       <Brief>水兵菇，能够发射短程孢子的水生植物。</Brief>
       <GetMethodDesc>游戏中获得</GetMethodDesc>
@@ -240,7 +240,7 @@
     </PlantInfo>
     <upgrade att="1" />
   </plant>
-  <plant id="25" positionId="20" name="火爆辣椒" type="0" price="25" isDisplay="1" att="1800" hp="300" refreshTime="50" bulletId="-1" bulletAtt="0" damageType="5">
+  <plant id="25" positionId="20" name="火爆辣椒" type="0" price="125" isDisplay="1" att="1800" hp="300" refreshTime="50" bulletId="-1" bulletAtt="0" damageType="5">
     <PlantInfo>
       <Brief>火爆辣椒可以摧毁一整条在线的僵尸。</Brief>
       <GetMethodDesc>游戏中获得</GetMethodDesc>
@@ -290,7 +290,7 @@
     </PlantInfo>
     <upgrade att="1" />
   </plant>
-  <plant id="43" positionId="35" name="多嘴小蘑菇" type="0" price="150" isDisplay="1" att="20" hp="300" refreshTime="50" bulletId="-1" bulletAtt="20" damageType="2">
+  <plant id="43" positionId="35" name="多嘴小蘑菇" type="2" price="150" isDisplay="1" att="20" hp="300" refreshTime="50" bulletId="-1" bulletAtt="20" damageType="2">
     <PlantInfo>
       <Brief>多嘴喷菇围绕自身释放大量烟雾，使用次数：1次/张</Brief>
       <GetMethodDesc>游戏中获得</GetMethodDesc>
@@ -330,7 +330,7 @@
     </PlantInfo>
     <upgrade att="1" />
   </plant>
-  <plant id="72" positionId="29" name="寒冰大喷菇" type="0" price="300" isDisplay="0" att="20" hp="300" refreshTime="7.5" bulletId="18" bulletAtt="20" damageType="11">
+  <plant id="72" positionId="29" name="寒冰大喷菇" type="2" price="300" isDisplay="0" att="20" hp="300" refreshTime="7.5" bulletId="18" bulletAtt="20" damageType="11">
     <PlantInfo>
       <Brief>寒冰大喷菇喷出的气泡可以穿透铁丝网门，并让僵尸减速。</Brief>
       <GetMethodDesc>游戏中获得</GetMethodDesc>
@@ -340,7 +340,7 @@
     </PlantInfo>
     <upgrade att="1" />
   </plant>
-  <plant id="38" positionId="29" name="冰蘑菇" type="0" price="0" isDisplay="1" att="20" hp="300" refreshTime="50" bulletId="-1" bulletAtt="0" damageType="0">
+  <plant id="38" positionId="29" name="冰蘑菇" type="2" price="0" isDisplay="1" att="20" hp="300" refreshTime="50" bulletId="-1" bulletAtt="0" damageType="0">
     <PlantInfo>
       <Brief>冰蘑菇</Brief>
       <GetMethodDesc>游戏中获得</GetMethodDesc>
@@ -350,7 +350,7 @@
     </PlantInfo>
     <upgrade att="1" />
   </plant>
-  <plant id="73" positionId="30" name="火蘑菇" type="0" price="75" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="3" bulletAtt="40" damageType="6">
+  <plant id="73" positionId="30" name="火蘑菇" type="2" price="75" isDisplay="1" att="20" hp="300" refreshTime="7.5" bulletId="3" bulletAtt="40" damageType="6">
     <PlantInfo>
       <Brief>火蘑菇能够使啃食他的僵尸由内而外的自燃。</Brief>
       <GetMethodDesc>游戏中获得</GetMethodDesc>

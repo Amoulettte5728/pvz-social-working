@@ -1,10 +1,10 @@
 {
-  "tutorialStep": 1523,
+  "tutorialStep": 79859,
   "skippedTutorial": true,
-  "money": 5710,
-  "gems": 500,
-  "level": 1,
-  "experience": 1480,
+  "money": 62570,
+  "gems": 8000,
+  "level": 10,
+  "experience": 10715,
   "houses": [],
   "levelsFinished": [
     1,
@@ -14,7 +14,16 @@
     5,
     6,
     7,
-    8
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    20,
+    21,
+    22,
+    23
   ],
   "unlockedLevels": [
     1,
@@ -25,17 +34,56 @@
     6,
     7,
     8,
-    9
+    9,
+    10,
+    11,
+    12,
+    13,
+    20,
+    21,
+    22,
+    23,
+    24
   ],
   "unlockedPlants": [
+    1,
     2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
     9,
+    10,
+    11,
     12,
+    13,
+    14,
+    15,
     16,
     17,
     18,
+    19,
     20,
-    24
+    21,
+    22,
+    23,
+    24,
+    25,
+    27,
+    33,
+    38,
+    41,
+    42,
+    43,
+    45,
+    57,
+    71,
+    73,
+    74,
+    75,
+    76
   ],
   "ownedBuildings": [],
   "placedBuildings": [
@@ -47,71 +95,127 @@
     },
     {
       "resourceId": 881,
-      "position": 480,
+      "position": 348,
       "buyId": 1000001,
+      "level": 1
+    },
+    {
+      "resourceId": 706,
+      "position": 446,
+      "buyId": 1000002,
+      "level": 1
+    },
+    {
+      "resourceId": 711,
+      "position": 302,
+      "buyId": 1000003,
+      "level": 1
+    },
+    {
+      "resourceId": 826,
+      "position": 324,
+      "buyId": 1000004,
       "level": 1
     }
   ],
-  "nextBuildingId": 1000002,
+  "nextBuildingId": 1000005,
   "ownedFunctionCards": [],
-  "decorations": [],
-  "nextDecorationId": 2000000,
+  "decorations": [
+    {
+      "id": 2000000,
+      "tid": 471,
+      "level": 1,
+      "layout": "289:0"
+    },
+    {
+      "id": 2000001,
+      "tid": 463,
+      "level": 1,
+      "layout": "318:0,438:0,444:0,450:0,456:0,462:0,288:0,294:0,300:0,306:0,312:0"
+    },
+    {
+      "id": 2000002,
+      "tid": 458,
+      "level": 1,
+      "layout": "291:0,290:0,292:0"
+    },
+    {
+      "id": 2000003,
+      "tid": 355,
+      "level": 1,
+      "layout": "432:1,433:5,445:1,457:1,451:8,439:8,463:6,301:1,307:6,313:6,319:8,295:4,296:5,297:5,298:5,299:5,305:6,311:6,317:6,323:6,437:6,443:6,449:6,466:1,465:7,464:9,461:1,467:12,455:8,337:1,336:9,326:1,332:6,338:12"
+    },
+    {
+      "id": 2000004,
+      "tid": 404,
+      "level": 1,
+      "layout": "293:0"
+    },
+    {
+      "id": 2000005,
+      "tid": 459,
+      "level": 1,
+      "layout": "344:0,476:0"
+    },
+    {
+      "id": 2000006,
+      "tid": 455,
+      "level": 1,
+      "layout": "342:0,474:0"
+    },
+    {
+      "id": 2000007,
+      "tid": 456,
+      "level": 1,
+      "layout": "343:0"
+    }
+  ],
+  "nextDecorationId": 2000008,
   "unlockedAreas": [
     8,
     9,
+    10,
     12,
-    13
+    13,
+    14
   ],
   "missionsFinished": [
     110,
     120,
     130,
     140,
-    150
+    150,
+    180,
+    190,
+    200,
+    210,
+    220,
+    230,
+    240
   ],
-  "plants": [
-    {
-      "id": 3000000,
-      "clientPid": null,
-      "seedId": 115,
-      "position": 446,
-      "harvestTime": "2026-10-5 10:49:57"
-    },
-    {
-      "id": 3000001,
-      "clientPid": null,
-      "seedId": 116,
-      "position": 444,
-      "harvestTime": "2026-10-5 10:50:3"
-    },
-    {
-      "id": 3000002,
-      "clientPid": null,
-      "seedId": 111,
-      "position": 448,
-      "harvestTime": "2026-10-5 10:50:10"
-    },
-    {
-      "id": 3000003,
-      "clientPid": null,
-      "seedId": 107,
-      "position": 456,
-      "harvestTime": "2026-10-5 10:50:16"
-    },
-    {
-      "id": 3000004,
-      "clientPid": null,
-      "seedId": 103,
-      "position": 458,
-      "harvestTime": "2026-10-5 10:50:24"
-    },
-    {
-      "id": 3000005,
-      "clientPid": null,
-      "seedId": 104,
-      "position": 460,
-      "harvestTime": "2026-10-5 10:50:32"
-    }
-  ],
-  "nextPlantId": 3000006
+  "plants": [],
+  "nextPlantId": 3000006,
+  "boostItems": {
+    "653": 2,
+    "656": 2,
+    "669": 2,
+    "663": 0,
+    "672": 0,
+    "666": 0,
+    "668": 2,
+    "654": 2,
+    "655": 2,
+    "671": 2,
+    "670": 2,
+    "667": 2,
+    "665": 2,
+    "664": 2,
+    "662": 2,
+    "661": 2,
+    "659": 2,
+    "660": 2,
+    "658": 2,
+    "657": 2
+  },
+  "rampageBestScore": 2290498
 }

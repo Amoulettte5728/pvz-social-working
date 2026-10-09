@@ -85,6 +85,7 @@
 </TIPS>
 	<UI>
 		<TOWN>
+			<GOTO_FRIEND_TOWN>正在前往####的小鎮...</GOTO_FRIEND_TOWN>
 			<TOWN_NAME>####</TOWN_NAME>
 			<RP_BT_TITLE>大亂鬥</RP_BT_TITLE>
 			<RP_BT_TIPS>點擊這裡參加大亂鬥!</RP_BT_TIPS>
@@ -160,7 +161,11 @@
 		</TD>
 </UI>
 	<POPUP>
+		<PUBLIC>
+			<RAMPAGE_ALERT>你的植物卡片還比較少,暴走模式可能會很難!確定要開始嗎?</RAMPAGE_ALERT>
+		</PUBLIC>
 		<MISSION_CENTER>
+			<FRIEND_TOWN_NO_ADVENTURE>這是好友的小鎮,不能在這裡進行冒險關卡!</FRIEND_TOWN_NO_ADVENTURE>
 			<LVL_REQUIRED>需要等級:####</LVL_REQUIRED>
 			<PREV_MISSION>需要先完成:</PREV_MISSION>
 			<FINISH_PREV>請先完成"####"</FINISH_PREV>

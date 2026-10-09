@@ -565,14 +565,14 @@ sys.stderr = _Tee(sys.stderr, _server_log_file)
 # server.py side, which still can't hash-check itself: if what you paste
 # into a message doesn't match the label mentioned in that reply, the file
 # is stale, full stop - no need to compute anything.
-BUILD_LABEL = "2026-10-06-rampage-panel-real-rampage"
+BUILD_LABEL = "2026-10-08-night-lawns"
 
 EXPECTED_BUILD = {
-    "main.swf": (578849, "273f4df24e717e5ebc1b2974cb025e4c"),
-    "PVZEntry_1_.swf": (498126, "508e7aa404e2598fb1f27fef8b40da9d"),
-    "townEntry_1_.swf": (480919, "9639ac0d85eb1dbc86ae06008d74bda1"),
+    "main.swf": (578957, "77c6e6a5133ab17d19dae8cf164a9dcf"),
+    "PVZEntry_1_.swf": (498946, "12703e8fc1ce62d445cade781bcf3e08"),
+    "townEntry_1_.swf": (481151, "3cd7dc236f8cbf0d477929e36e8fb86f"),
     "itemShop.swf":     (427447, "8d5e97f5667580d05a7e3fee224d0b18"),
-    "pvzTD_1_.swf": (1705693, "4b5712664922a7bd5747842f61543652"),
+    "pvzTD_1_.swf": (1945954, "5d5f9f608032a0cf386b415c18321dea"),
 }
 
 
@@ -1491,7 +1491,7 @@ _PLANT_UNLOCK_BY_LEVEL = {
 # code below). Levels 1-3 are the tutorial levels in their real modes (types 3,
 # 4, 5); after that come the enabled levels of conf/missions.json (wiki data:
 # 前院1-1..1-6 = levels 4-9, 水池1-1..1-6 = levels 10-15). Night levels are in
-# missions.json but disabled until pvzScreen2/pvzScreen4 exist.
+# missions.json (night lawns: pvzScreen2 / pvzScreen4).
 # ---------------------------------------------------------------------------
 _TUTORIAL_LEVELS = [
     dict(name="新兵训练1", type=3, scene=1, waves=5, initSun=150, zombies=[2], flagWave="5", gold=0, exp=0, img=1,
@@ -1516,6 +1516,19 @@ _PLANT_REWARDS_BY_NAME = {
     "水池1-1": [23], "水池1-6": [19],
 }
 _ADVENTURE_CACHE = {}
+# resourceIds that were in the catalogue before 前院2-x / 水池1-7..1-10 were
+# added, in their old order (their catalogue positions must not move).
+_CATALOG_V1_RIDS = list(range(11, 21)) + list(range(31, 37))
+# Which levels each house lists (I1033), as resourceIds; tutorials are 1-3.
+# 701 = the tutorial / practice house (tutorials + 1-x), 706-710 = the 前院
+# house and its upgrades (1-x + 2-x), 711-715 = the 水池 house and its
+# upgrades (3-x = 水池1-x, 4-x = 水池2-x).
+_HOUSE_LEVELS = {
+    701: [1, 2, 3] + list(range(11, 21)),
+    706: list(range(11, 31)),
+    711: list(range(31, 51)),
+}
+_HOUSE_CHAIN = {tid: base for base in (706, 711) for tid in range(base, base + 5)}
 
 
 def _adventure_levels():
@@ -1530,12 +1543,21 @@ def _adventure_levels():
     except Exception as e:
         print(f"[progress] could not read conf/missions.json ({e}); only the tutorial levels are available")
         data = {"levels": []}
-    for m in data.get("levels", []):
-        if not m.get("enabled"):
-            continue
+    # Catalogue positions are what saves store (levelsFinished), so levels
+    # that existed before keep their old positions (前院1-x = 4-13, 水池1-1..1-6
+    # = 14-19) and newer ones (前院2-x, 水池1-7..1-10) are appended after them.
+    # The order levels are PLAYED in is separate: see _play_order().
+    enabled = [m for m in data.get("levels", []) if m.get("enabled")]
+    enabled.sort(key=lambda m: (0, _CATALOG_V1_RIDS.index(int(m.get("resourceId", 0) or 0)))
+                 if int(m.get("resourceId", 0) or 0) in _CATALOG_V1_RIDS else (1, int(m.get("resourceId", 0) or 0)))
+    for m in enabled:
         easy = m["difficulties"][0]
-        idx = len([x for x in levels if x.get("scene") == m["scene"] and x.get("type") == 1]) + 1
-        waves = 6 + 2 * min(7, idx - 1) if m["scene"] == 1 else 8 + 2 * min(3, idx - 1)   # front yard grows to 20 waves (1-8..1-10)
+        _rid = int(m.get("resourceId", 0) or 0)
+        idx = ((_rid - 1) % 10) + 1 if _rid else 1          # 1..10 inside its world (x-1 .. x-10)
+        if 11 <= _rid <= 20:
+            waves = 6 + 2 * min(7, idx - 1)                  # 前院1: 6 .. 20 waves
+        else:
+            waves = 8 + 2 * min(6, idx - 1)                  # 前院2 / 水池: 8 .. 20 waves
         flags = ",".join(str(w) for w in ([10] if waves >= 15 else []) + [waves])   # PvZ: a flag every 10 waves + the final wave
         # The real Adventure data uses resourceId 11,12,... for the level and
         # resourceId*10+difficulty for the playable mission id (110/111/112,
@@ -1591,6 +1613,41 @@ def _house_mission_resource_ids():
 
 def _max_level():
     return len(_adventure_levels())
+
+
+def _play_order():
+    """Catalogue positions in the order the levels are played/unlocked:
+    tutorials, 前院1-1..1-10, 前院2-1..2-10, 水池1-1..1-10."""
+    if "order" not in _ADVENTURE_CACHE:
+        lv = _adventure_levels()
+        def key(i):
+            info = lv[i - 1]
+            if int(info.get("type", 1) or 1) != 1:
+                return (0, i)
+            return (1, int(info.get("resourceId", 0) or 0))
+        _ADVENTURE_CACHE["order"] = sorted(range(1, len(lv) + 1), key=key)
+    return _ADVENTURE_CACHE["order"]
+
+
+def _next_level(mid):
+    order = _play_order()
+    if mid in order and order.index(mid) + 1 < len(order):
+        return order[order.index(mid) + 1]
+    return None
+
+
+def _prev_level(mid):
+    order = _play_order()
+    if mid in order and order.index(mid) > 0:
+        return order[order.index(mid) - 1]
+    return None
+
+
+def _house_level_ids(tid):
+    """resourceIds a house lists (only the ones that exist in the catalogue)."""
+    have = set(_house_mission_resource_ids())
+    base = 701 if tid == 701 else _HOUSE_CHAIN.get(tid)
+    return [r for r in _HOUSE_LEVELS.get(base, []) if r in have]
 
 
 def _level_info(mid):
@@ -1720,8 +1777,8 @@ def _normalize_progress(save):
     unlocked_levels = {1}
     for mid in finished:
         unlocked_levels.add(mid)
-        if mid < _max_level():
-            unlocked_levels.add(mid + 1)
+        if _next_level(mid):
+            unlocked_levels.add(_next_level(mid))
 
     plants = {12, 2}
     for value in save.get("unlockedPlants", []):
@@ -1759,8 +1816,8 @@ def _persist_progress_for_completed_mission(mission_id):
     finished.add(mission_id)
     unlocked_levels = set(save["unlockedLevels"])
     unlocked_levels.add(mission_id)
-    if mission_id < _max_level():
-        unlocked_levels.add(mission_id + 1)
+    if _next_level(mission_id):
+        unlocked_levels.add(_next_level(mission_id))
 
     plants = set(save["unlockedPlants"])
     info = _level_info(mission_id)
@@ -1794,6 +1851,16 @@ _RAMPAGE_TOURNAMENT = {
 }
 
 
+_RAMPAGE_LOTTERY = [
+    {"money": 500}, {"money": 1000}, {"money": 2000},
+    {"gems": 5}, {"gems": 10},
+    {"experience": 50}, {"experience": 100},
+    {"itemId": 658, "count": 1},   # 额外500阳光 boost
+    {"itemId": 661, "count": 1},   # 前10秒无CD boost
+]
+_RAMPAGE_LOTTERY_WEIGHTS = [30, 18, 6, 6, 3, 18, 10, 5, 4]
+
+
 def _effective_tutorial_step(step):
     """Once the rampage tutorial (1024) is done, the town would start the arena
     (PvP occupation) and card-strengthen tutorials, which need online data and
@@ -1802,6 +1869,57 @@ def _effective_tutorial_step(step):
     if step & 1024:
         step |= 131072 | 262144 | 524288 | 1048576
     return step
+
+
+# id: (BoostManager functionId, affect, conditions, price in coins)
+#  functionIds: 9 ADD_MULTIPLE, 10 RECOGNISE_SAFE_VASE, 11 ADD_SAFE_VASE, 12 PLANT_DIE,
+#  13 REDUCE_RUSH_CD, 14 REDUCE_DROP_VASE_CD, 15 ADD_SUN, 16 ADD_TIME,
+#  17 KILL_SEVERAL_ZOMBIE, 18 NO_CARD_CD, 19 MULTIPLE_EXTRA_TIME, 20 AUTO_BIO,
+#  21 CARDSLOT_MULTIPLE, 50 EXTRA_INIT_TIME, 51 SPECIAL_COLUMN, 52 LESS_CD,
+#  54 VASE_NO_ZOMBIE. Prices are offline choices (original values unknown).
+_RAMPAGE_BOOSTS = {
+    653: (10, 1, 0, 1000),    # 安全罐提示      safe vases are marked
+    654: (11, 1, 0, 1500),    # 额外安全罐      +1 safe vase
+    655: (12, 1, 3, 1500),    # 植物换罐子      every 3 dead plants -> 1 vase
+    656: (13, 3, 0, 1000),    # 来吧快启动      "bring it on" cooldown -3 s
+    657: (14, 3, 0, 1500),    # 快落罐子        vases drop 3 s sooner
+    658: (15, 500, 0, 500),   # 额外500阳光     +500 sun
+    659: (16, 2, 0, 1000),    # 时间奖励加2秒    time bonus +2 s
+    660: (17, 1, 10, 1500),   # 僵尸换罐子      every 10 zombies -> 1 vase
+    661: (18, 10, 0, 1500),   # 前10秒无CD      no card cooldown for 10 s
+    662: (19, 5, 0, 1000),    # 加成僵尸停留     bonus zombie stays 5 s longer
+    663: (20, 1, 0, 2000),    # 自动来吧        automatic "bring it on"
+    664: (21, 1, 0, 2000),    # 空卡槽换倍数     empty seed slot -> +1 multiplier
+    665: (15, 1000, 0, 1000), # 额外1000阳光    +1000 sun
+    666: (16, 4, 0, 2000),    # 时间奖励加4秒    time bonus +4 s
+    667: (18, 15, 0, 2500),   # 前15秒无CD      no card cooldown for 15 s
+    668: (50, 30, 0, 3000),   # 额外30秒时间     +30 s round time
+    669: (51, 1, 0, 1500),    # 加成僵尸定位     bonus zombie appears in a fixed column
+    670: (52, 90, 0, 2500),   # 卡片CD减少10%    cards recharge 1/0.9 faster
+    671: (9, 3, 0, 3000),     # 初始倍数加3      start multiplier +3
+    672: (54, 1, 0, 4000),    # 超级安全罐子     vases contain no zombies
+}
+
+
+def _rampage_boost_setting(bid, order):
+    fid, affect, cond, price = _RAMPAGE_BOOSTS[bid]
+    return {"id": bid, "resourceId": bid, "type": 5, "active": True, "money": price, "sellType": 0,
+            "status": 1, "discount": "1", "onShelfTime": "0", "offShelfTime": "0",
+            "functionId": fid, "affect": affect, "conditions": cond, "featureShopOrder": order,
+            "levelRequired": 0, "earlyUnlockCost": 0, "groupId": 0, "ownCountLimit": 0}
+
+
+def _exp_needed_for_level(n):
+    return int(n) * 100           # matches "expLadder" below
+
+
+def _level_from_total_exp(total):
+    """(level, exp into that level) from the saved TOTAL experience."""
+    level, rem = 1, max(0, int(total or 0))
+    while level < 60 and rem >= _exp_needed_for_level(level + 1):
+        rem -= _exp_needed_for_level(level + 1)
+        level += 1
+    return level, rem
 
 
 def i1001_payload():
@@ -1859,8 +1977,11 @@ def i1001_payload():
             # Without this list the seed-selection screen of every normal
             # adventure level failed (#1010 reading .length of undefined).
             # PvZ starts with 6 slots; save["seedSlots"] can raise it.
+            # ITEM_TYPE_RAMPAGE_BOOST (5): owned rampage boosts with their counts
+            "5": [{"tid": str(k), "count": int(v)} for k, v in sorted((save.get("boostItems") or {}).items()) if int(v) > 0],
             # ITEM_TYPE_BOOST_SLOT (11): one entry per open boost slot (3 = all open)
-            "11": [{"tid": str(9100 + i), "slotId": i, "index": i} for i in range(3)],
+            # count is required: PropItemsManager.getMyPropListByType() only counts items with count > 0
+            "11": [{"tid": str(9100 + i), "slotId": i, "index": i, "count": 1} for i in range(3)],
             "10": [
                 {"tid": str(9000 + i), "slotId": i, "index": i, "active": True}
                 for i in range(max(5, min(10, int(save.get("seedSlots", 6) or 6))))
@@ -1940,6 +2061,17 @@ def i1001_payload():
                 "levelRequired": 0, "ownCountLimit": 0,
                 } for n in range(0, 11)
             }},
+            # ITEM_TYPE_RAMPAGE_BOOST (5): the rampage boosts (增益) shown in the
+            # rampage BoostPanel. Name / description / icon (item_653..672) come
+            # from GamePropItem_1_.xml; functionId + affect select the effect in
+            # BoostManager (see _RAMPAGE_BOOSTS).
+            "5": {str(bid): _rampage_boost_setting(bid, order) for order, bid in enumerate(sorted(_RAMPAGE_BOOSTS), 1)},
+            "18": {  # ITEM_TYPE_ARENA_PERSON_TILE: arena capture-slot unlock (ArenaListPanel
+                     # PersonTile reads propItemsConfigMap.get("1301").money/discount)
+                "1301": {"id": 1301, "resourceId": 1301, "type": 18, "groupId": 0, "active": True,
+                         "money": 2000, "gems": 10, "sellType": 1, "status": 1, "discount": "1",
+                         "onShelfTime": "0", "offShelfTime": "0", "levelRequired": 0, "ownCountLimit": 0},
+            },
             "11": {  # ITEM_TYPE_BOOST_SLOT items sent in items["11"] (never sold)
                 str(9100 + i): {
                     "id": 9100 + i, "resourceId": 9100 + i, "type": 11, "groupId": 0, "active": False,
@@ -2108,9 +2240,13 @@ def i1001_payload():
             "name": identity["name"],
             "thumbnail": identity["thumbnail"],
             "token": save["money"],
-            "experience": save["experience"],
-            "level": save["level"],
-            "ladderExpValue": 500,
+            # The client's exp is the exp INTO the current level (expLadder[n] =
+            # exp needed to reach level n). The save keeps the TOTAL; sending
+            # the total with a low level made the client level up again and
+            # again (endless 升级 popups, exp shooting up).
+            "experience": _level_from_total_exp(save["experience"])[1],
+            "level": _level_from_total_exp(save["experience"])[0],
+            "ladderExpValue": _exp_needed_for_level(_level_from_total_exp(save["experience"])[0] + 1),
             "energy": 20,
             "energyLimit": 20,
             "lastEnergyChargedTime": now,
@@ -2206,6 +2342,9 @@ def i1001_payload():
         # LeaderBoard.enterContainer(): rampageWeeklyBonus[currentTournamentId]
         # ["teamTarget"] (3 team-score goals) - an empty dict crashed (#1009).
         "rampageWeeklyBonus": {"1": {"teamTarget": [100000, 300000, 500000]}},
+        # Rampage results lottery (RampageBonusPanel -> BonusPanel grid): the
+        # prizes; I4010 says which one (by 1-based index) was won.
+        "randomBonusSetting": {"2": {"1": {"list": _RAMPAGE_LOTTERY}}},
         "residentStayingBonus": 0,
         "residentStayingToken": 0,
         "validRampageBonus": 1,
@@ -2213,7 +2352,20 @@ def i1001_payload():
     }
 
 
-def i2001_payload():
+def _friend_username_for_uid(uid):
+    """The active account's accepted friend whose uid (FriendVO.uid, see
+    friends_of_active_account) is ``uid``, or None (own town / unknown)."""
+    try:
+        uid = int(str(uid).strip())
+    except (TypeError, ValueError):
+        return None
+    for fr in friends_of_active_account():
+        if int(fr["uid"]) == uid:
+            return fr["name"]
+    return None
+
+
+def i2001_payload(owner_uid=None):
     """Response for services.I2001 - TownFlow.onGetUserTownInfo(). grounds is
     read 'as Array' then has .length accessed with no null check - the exact
     same crash pattern as pvzData.groundUnlockGreenPoints earlier. Everything
@@ -2229,7 +2381,12 @@ def i2001_payload():
     all remaining areas stay behind the normal TownBaseMap purchase UI.
     """
     now = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
-    save = current_save()
+    # TownFlow.loadUserTownInfo() sends the town owner's uid: visiting a
+    # friend (FriendList click) must load THAT friend's save, not ours.
+    friend = _friend_username_for_uid(owner_uid) if owner_uid not in (None, "") else None
+    save = load_save(friend) if friend else current_save()
+    if friend:
+        print(f"[town] visiting {friend}'s town (uid {owner_uid})")
     return {
         "result": True,
         # I2001 returns the ground keys that are currently open.  I1001 still
@@ -2735,7 +2892,11 @@ def _build_amf_response_locked(bodies):
         if "I1001" in body.target:
             payload = i1001_payload()
         elif "I2001" in body.target:
-            payload = i2001_payload()
+            try:
+                _args = service_args(body)
+            except Exception:
+                _args = []
+            payload = i2001_payload(_args[0] if _args else None)
         elif "I1034" in body.target:
             payload = i1034_payload()
         elif "I1007" in body.target:
@@ -2769,7 +2930,7 @@ def _build_amf_response_locked(bodies):
                 resource_id = int(info.get("resourceId", mid) or mid)
                 display_mission_id = resource_id * 10 if normal and resource_id else mid
                 if normal:
-                    prev_mid = mid - 1
+                    prev_mid = _prev_level(mid) or 0
                     prev_info = _level_info(prev_mid) if prev_mid > 0 else None
                     prev_external = ((int(prev_info.get("resourceId", 0) or 0) * 10)
                                      if prev_info and int(prev_info.get("type", 1) or 1) == 1
@@ -2962,8 +3123,9 @@ def _build_amf_response_locked(bodies):
                 # resetRampageBt() only shows the rampage gravestone (rpBt) if
                 # some PeopleHouse's list has [0] <= 0. openAdventureForHouse()
                 # skips ids <= 0, so the adventure list itself is unchanged.
-                "list": dict({"701": [0] + _house_mission_resource_ids()},
-                             **{str(tid): _house_mission_resource_ids() for tid in range(706, 716)}),
+                # Each house only lists its own world (_HOUSE_LEVELS).
+                "list": dict({"701": [0] + _house_level_ids(701)},
+                             **{str(tid): _house_level_ids(tid) for tid in range(706, 716)}),
                 "code": 0,
             }
         elif "I4002" in body.target:
@@ -3115,10 +3277,38 @@ def _build_amf_response_locked(bodies):
             # Rampage leaderboard (LeaderBoard.setLeaderBoardListS2C reads
             # reply.leaderboard[*] = {uid, score, teamScore}). Offline: just
             # the player, with the best rampage score saved by I4010.
+            # Friends are listed with the best score from their own save.
             best = int(current_save().get("rampageBestScore", 0) or 0)
             uid = active_identity()["uid"]
-            payload = {"result": True, "code": 0,
-                       "leaderboard": {"0": {"uid": uid, "score": best, "teamScore": best}}}
+            board = {"0": {"uid": uid, "score": best, "teamScore": best}}
+            for _fr in friends_of_active_account():
+                try:
+                    _fb = int(load_save(_fr["name"]).get("rampageBestScore", 0) or 0)
+                except Exception:
+                    _fb = 0
+                board[str(len(board))] = {"uid": _fr["uid"], "score": _fb, "teamScore": _fb}
+            # your team score = you + your friends (LeaderBoard reads it from your own row)
+            board["0"]["teamScore"] = sum(int(v["score"]) for v in board.values())
+            payload = {"result": True, "code": 0, "leaderboard": board}
+        elif "I4009" in body.target:
+            # Real rampage start: SCardListBottomPanel -> I4009(buildingId,
+            # cardItemIds csv, boost+power item ids csv) -> enterTD. Use up the
+            # boosts that were taken into the round.
+            try:
+                args = service_args(body)
+                used = [int(x) for x in str(args[2] if len(args) > 2 else "").split(",") if x.strip().lstrip("-").isdigit()]
+            except Exception:
+                used = []
+            cur = current_save()
+            boosts = {str(k): int(v) for k, v in (cur.get("boostItems") or {}).items()}
+            spent = []
+            for bid in used:
+                if bid in _RAMPAGE_BOOSTS and boosts.get(str(bid), 0) > 0:
+                    boosts[str(bid)] -= 1; spent.append(bid)
+            if spent:
+                write_current_save(boostItems=boosts)
+                print(f"[rampage] round started with boosts {spent}")
+            payload = generic_payload()
         elif "I4010" in body.target:
             # End of a real rampage run: RamPageGame -> I4010(uuid, score, stats,
             # isGameWin) -> showRampageAwardUI(reply). Pay coins/exp from the score.
@@ -3134,7 +3324,39 @@ def _build_amf_response_locked(bodies):
                                experience=int(cur.get("experience", 0)) + exp,
                                rampageBestScore=max(int(cur.get("rampageBestScore", 0) or 0), score))
             print(f"[rampage] I4010 score={score} -> +{token} coins, +{exp} exp")
-            payload = {"result": True, "code": 0, "token": token, "tokenBonus": 0, "exp": exp, "expBonus": 0}
+            # lottery prize (shown by the results screen's bonus panel) -> save
+            import random as _rnd
+            pick = _rnd.choices(range(len(_RAMPAGE_LOTTERY)), weights=_RAMPAGE_LOTTERY_WEIGHTS)[0]
+            prize = _RAMPAGE_LOTTERY[pick]
+            cur = current_save()
+            upd = {}
+            if prize.get("money"):
+                upd["money"] = int(cur.get("money", 0)) + prize["money"]
+            if prize.get("gems"):
+                upd["gems"] = int(cur.get("gems", 0)) + prize["gems"]
+            if prize.get("experience"):
+                upd["experience"] = int(cur.get("experience", 0)) + prize["experience"]
+            if prize.get("itemId"):
+                boosts = {str(k): int(v) for k, v in (cur.get("boostItems") or {}).items()}
+                boosts[str(prize["itemId"])] = boosts.get(str(prize["itemId"]), 0) + int(prize.get("count", 1))
+                upd["boostItems"] = boosts
+            if upd:
+                write_current_save(**upd)
+            print(f"[rampage] lottery prize #{pick + 1}: {prize}")
+            payload = {"result": True, "code": 0, "token": token, "tokenBonus": 0, "exp": exp, "expBonus": 0,
+                       "randomBonus": f"1:{pick + 1}"}
+        elif "I7001" in body.target:
+            # Arena (占领) self status -> SelfStatusPanel.sendMyDataS2C: sets
+            # challengeScore / activityPoint as text (generic reply -> #2007).
+            # Offline: nobody occupies your town.
+            best = int(current_save().get("rampageBestScore", 0) or 0)
+            payload = {"result": True, "code": 0,
+                       "invasionInfo": {"occupierId": 0, "freeTime": "0000-00-00 00:00:00", "rampagePointLevel": 0},
+                       "rampagePointLevel": 0, "challengeScore": str(best), "activityPoint": "0"}
+        elif "I7002" in body.target or "I7003" in body.target or "I7004" in body.target:
+            # Arena challenger / captured / enemy lists -> ArenaListPanel.
+            # Offline there are no online opponents: empty lists.
+            payload = {"result": True, "code": 0, "list": []}
         elif "I7017" in body.target:
             payload = i7017_payload()
         elif body.target.rstrip().endswith("I1016"):
@@ -3350,7 +3572,27 @@ def _build_amf_response_locked(bodies):
                 raw_arg = None
                 quantity = 1
 
-            if isinstance(raw_arg, str):
+            _boost_id = None
+            try:
+                if raw_arg is not None and int(raw_arg) in _RAMPAGE_BOOSTS:
+                    _boost_id = int(raw_arg)   # BoostPanel sends the boost id as a STRING
+            except (TypeError, ValueError):
+                _boost_id = None
+            if _boost_id is not None:
+                price = _RAMPAGE_BOOSTS[_boost_id][3] * max(1, quantity)
+                save = current_save()
+                boosts = {str(k): int(v) for k, v in (save.get("boostItems") or {}).items()}
+                if int(save.get("money", 0)) >= price:
+                    boosts[str(_boost_id)] = boosts.get(str(_boost_id), 0) + max(1, quantity)
+                    write_current_save(money=int(save["money"]) - price, boostItems=boosts)
+                    print(f"[rampage] bought boost {_boost_id} x{quantity} for {price} coins")
+                    payload = {"result": True, "code": 0,
+                               "user": {"uid": active_identity()["uid"], "token": int(save["money"]) - price}, "gems": int(save.get("gems", 0)),
+                               "items": [{"tid": _boost_id, "count": boosts[str(_boost_id)]}]}
+                else:
+                    payload = {"result": False, "code": 1,
+                               "user": {"uid": active_identity()["uid"], "token": int(save.get("money", 0))}, "gems": int(save.get("gems", 0))}
+            elif isinstance(raw_arg, str):
                 # Area unlock: the client sends the zero-based area index as
                 # a string.  Unlocks are sequential: the only valid next
                 # area is the current number of already-open areas.
@@ -3409,6 +3651,22 @@ def _build_amf_response_locked(bodies):
                         "items": [{"tid": resource_id, "count": owned.count(resource_id)}],
                         "code": 0,
                     }
+                elif resource_id is not None and resource_id in _RAMPAGE_BOOSTS:
+                    # Rampage boost purchase (BoostPanel -> I5001(id, qty) -> finishSale:
+                    # reads reply.user.token and reply.gems).
+                    price = _RAMPAGE_BOOSTS[resource_id][3] * max(1, quantity)
+                    save = current_save()
+                    boosts = {str(k): int(v) for k, v in (save.get("boostItems") or {}).items()}
+                    if int(save.get("money", 0)) >= price:
+                        boosts[str(resource_id)] = boosts.get(str(resource_id), 0) + max(1, quantity)
+                        write_current_save(money=int(save["money"]) - price, boostItems=boosts)
+                        print(f"[rampage] bought boost {resource_id} x{quantity} for {price} coins")
+                        payload = {"result": True, "code": 0,
+                                   "user": {"uid": active_identity()["uid"], "token": int(save["money"]) - price}, "gems": int(save.get("gems", 0)),
+                                   "items": [{"tid": resource_id, "count": boosts[str(resource_id)]}]}
+                    else:
+                        payload = {"result": False, "code": 1,
+                                   "user": {"uid": active_identity()["uid"], "token": int(save.get("money", 0))}, "gems": int(save.get("gems", 0))}
                 elif resource_id is not None and resource_id in _FUNCTION_CARD_PRICES:
                     price = _FUNCTION_CARD_PRICES[resource_id]
                     save = current_save()

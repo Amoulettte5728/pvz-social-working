@@ -1,5 +1,5 @@
 {
- "_comment": "Adventure levels (data from the PvZ Social Edition wiki tables). resourceId: 前院1-k=10+k, 前院2-k=20+k, 水池1-k=30+k, 水池2-k=40+k; mission id = resourceId*10 + difficulty (0 easy, 1 normal, 2 hard). 'enabled' levels are listed in the practice house; night levels need pvzScreen2/pvzScreen4. 'zombies' = wiki zombies minus types without art in this folder (pole-vaulter, newspaper, dolphin, jack-in-the-box). A level unlocks when the previous enabled level's easy difficulty is won.",
+ "_comment": "Adventure levels (data from the PvZ Social Edition wiki tables). resourceId: 前院1-k=10+k, 前院2-k=20+k, 水池1-k=30+k, 水池2-k=40+k; mission id = resourceId*10 + difficulty (0 easy, 1 normal, 2 hard). 'enabled' levels are listed in the practice house; night levels need pvzScreen2/pvzScreen4. 'zombies' = wiki zombies minus types without art in this folder (pole-vaulter, newspaper, dolphin, jack-in-the-box). A level unlocks when the previous enabled level's easy difficulty is won. Houses (I1033): practice house 701 = tutorials + 前院1-1..1-10; 前院 house 706-710 = 前院1-1..1-10 + 前院2-1..2-10 (night lawn, pvzScreen2); 水池 house 711-715 = 水池1-1..1-10 + 水池2-1..2-10 (the player's 3-x and 4-x; night pool = pvzScreen4). Play order: 1-x, 2-x, 3-x, 4-x.",
  "houseTid": 701,
  "levels": [
   {
@@ -363,7 +363,7 @@
    "category": 2,
    "scene": 2,
    "img": 7,
-   "enabled": false,
+   "enabled": true,
    "zombies": [
     2,
     5
@@ -397,7 +397,7 @@
    "category": 2,
    "scene": 2,
    "img": 8,
-   "enabled": false,
+   "enabled": true,
    "zombies": [
     2,
     5,
@@ -432,7 +432,7 @@
    "category": 2,
    "scene": 2,
    "img": 9,
-   "enabled": false,
+   "enabled": true,
    "zombies": [
     2,
     5,
@@ -468,7 +468,7 @@
    "category": 2,
    "scene": 2,
    "img": 10,
-   "enabled": false,
+   "enabled": true,
    "zombies": [
     2,
     5,
@@ -504,7 +504,7 @@
    "category": 2,
    "scene": 2,
    "img": 11,
-   "enabled": false,
+   "enabled": true,
    "zombies": [
     2,
     5,
@@ -541,7 +541,7 @@
    "category": 2,
    "scene": 2,
    "img": 12,
-   "enabled": false,
+   "enabled": true,
    "zombies": [
     2,
     5,
@@ -569,6 +569,161 @@
      "gold": 4350,
      "exp": 2100,
      "note": "获得地刺"
+    }
+   ]
+  },
+  {
+   "resourceId": 27,
+   "name": "前院2-7",
+   "category": 1,
+   "scene": 2,
+   "img": 7,
+   "enabled": true,
+   "zombies": [
+    2,
+    5,
+    11,
+    13,
+    14,
+    19
+   ],
+   "zombiesWiki": "",
+   "dave": "小鬼僵尸也来凑热闹了!别让他们溜过去!",
+   "difficulties": [
+    {
+     "cdMinutes": 16,
+     "gold": 2000,
+     "exp": 1000,
+     "note": ""
+    },
+    {
+     "cdMinutes": 26,
+     "gold": 3600,
+     "exp": 1800,
+     "note": ""
+    },
+    {
+     "cdMinutes": 34,
+     "gold": 4500,
+     "exp": 2250,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "resourceId": 28,
+   "name": "前院2-8",
+   "category": 1,
+   "scene": 2,
+   "img": 8,
+   "enabled": true,
+   "zombies": [
+    2,
+    5,
+    11,
+    13,
+    14,
+    20,
+    19
+   ],
+   "zombiesWiki": "",
+   "dave": "越来越多的僵尸涌过来了,守住防线!",
+   "difficulties": [
+    {
+     "cdMinutes": 16,
+     "gold": 2150,
+     "exp": 1075,
+     "note": ""
+    },
+    {
+     "cdMinutes": 26,
+     "gold": 3800,
+     "exp": 1900,
+     "note": ""
+    },
+    {
+     "cdMinutes": 34,
+     "gold": 4700,
+     "exp": 2350,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "resourceId": 29,
+   "name": "前院2-9",
+   "category": 1,
+   "scene": 2,
+   "img": 9,
+   "enabled": true,
+   "zombies": [
+    2,
+    5,
+    11,
+    13,
+    14,
+    18,
+    19
+   ],
+   "zombiesWiki": "",
+   "dave": "全明星僵尸冲过来了!准备好你最强的植物!",
+   "difficulties": [
+    {
+     "cdMinutes": 16,
+     "gold": 2300,
+     "exp": 1150,
+     "note": ""
+    },
+    {
+     "cdMinutes": 26,
+     "gold": 4000,
+     "exp": 2000,
+     "note": ""
+    },
+    {
+     "cdMinutes": 34,
+     "gold": 4900,
+     "exp": 2450,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "resourceId": 30,
+   "name": "前院2-10",
+   "category": 1,
+   "scene": 2,
+   "img": 10,
+   "enabled": true,
+   "zombies": [
+    2,
+    5,
+    11,
+    13,
+    14,
+    18,
+    16
+   ],
+   "zombiesWiki": "",
+   "dave": "巨人僵尸出现了!这是前院最后的考验!",
+   "difficulties": [
+    {
+     "cdMinutes": 16,
+     "gold": 2500,
+     "exp": 1250,
+     "note": ""
+    },
+    {
+     "cdMinutes": 26,
+     "gold": 4300,
+     "exp": 2150,
+     "note": ""
+    },
+    {
+     "cdMinutes": 34,
+     "gold": 5250,
+     "exp": 2625,
+     "note": ""
     }
    ]
   },
@@ -789,12 +944,166 @@
    ]
   },
   {
+   "resourceId": 37,
+   "name": "水池1-7",
+   "category": 3,
+   "scene": 3,
+   "img": 13,
+   "enabled": true,
+   "zombies": [
+    2,
+    5,
+    11,
+    7,
+    13,
+    14
+   ],
+   "zombiesWiki": "",
+   "dave": "水里和岸上都有僵尸,两边都要顾好!",
+   "difficulties": [
+    {
+     "cdMinutes": 16,
+     "gold": 2300,
+     "exp": 1150,
+     "note": ""
+    },
+    {
+     "cdMinutes": 26,
+     "gold": 3900,
+     "exp": 1950,
+     "note": ""
+    },
+    {
+     "cdMinutes": 34,
+     "gold": 4800,
+     "exp": 2400,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "resourceId": 38,
+   "name": "水池1-8",
+   "category": 3,
+   "scene": 3,
+   "img": 14,
+   "enabled": true,
+   "zombies": [
+    2,
+    5,
+    11,
+    7,
+    14,
+    18
+   ],
+   "zombiesWiki": "",
+   "dave": "橄榄球僵尸也学会了游泳?小心水路!",
+   "difficulties": [
+    {
+     "cdMinutes": 16,
+     "gold": 2450,
+     "exp": 1225,
+     "note": ""
+    },
+    {
+     "cdMinutes": 26,
+     "gold": 4100,
+     "exp": 2050,
+     "note": ""
+    },
+    {
+     "cdMinutes": 34,
+     "gold": 5000,
+     "exp": 2500,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "resourceId": 39,
+   "name": "水池1-9",
+   "category": 3,
+   "scene": 3,
+   "img": 15,
+   "enabled": true,
+   "zombies": [
+    2,
+    5,
+    11,
+    7,
+    14,
+    18,
+    19
+   ],
+   "zombiesWiki": "",
+   "dave": "小鬼僵尸混在大部队里,别掉以轻心!",
+   "difficulties": [
+    {
+     "cdMinutes": 16,
+     "gold": 2600,
+     "exp": 1300,
+     "note": ""
+    },
+    {
+     "cdMinutes": 26,
+     "gold": 4300,
+     "exp": 2150,
+     "note": ""
+    },
+    {
+     "cdMinutes": 34,
+     "gold": 5200,
+     "exp": 2600,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "resourceId": 40,
+   "name": "水池1-10",
+   "category": 3,
+   "scene": 3,
+   "img": 16,
+   "enabled": true,
+   "zombies": [
+    2,
+    5,
+    11,
+    7,
+    14,
+    18,
+    16
+   ],
+   "zombiesWiki": "",
+   "dave": "巨人僵尸来到了泳池边!这是水池最后的考验!",
+   "difficulties": [
+    {
+     "cdMinutes": 16,
+     "gold": 2800,
+     "exp": 1400,
+     "note": ""
+    },
+    {
+     "cdMinutes": 26,
+     "gold": 4600,
+     "exp": 2300,
+     "note": ""
+    },
+    {
+     "cdMinutes": 34,
+     "gold": 5600,
+     "exp": 2800,
+     "note": ""
+    }
+   ]
+  },
+  {
    "resourceId": 41,
    "name": "水池2-1",
    "category": 4,
    "scene": 4,
    "img": 19,
-   "enabled": false,
+   "enabled": true,
    "zombies": [
     2,
     5,
@@ -829,7 +1138,7 @@
    "category": 4,
    "scene": 4,
    "img": 20,
-   "enabled": false,
+   "enabled": true,
    "zombies": [
     2,
     5,
@@ -864,7 +1173,7 @@
    "category": 4,
    "scene": 4,
    "img": 21,
-   "enabled": false,
+   "enabled": true,
    "zombies": [
     2,
     5,
@@ -899,7 +1208,7 @@
    "category": 4,
    "scene": 4,
    "img": 22,
-   "enabled": false,
+   "enabled": true,
    "zombies": [
     2,
     5,
@@ -934,7 +1243,7 @@
    "category": 4,
    "scene": 4,
    "img": 23,
-   "enabled": false,
+   "enabled": true,
    "zombies": [
     2,
     5,
@@ -970,7 +1279,7 @@
    "category": 4,
    "scene": 4,
    "img": 24,
-   "enabled": false,
+   "enabled": true,
    "zombies": [
     2,
     5,
@@ -997,6 +1306,161 @@
      "gold": 5250,
      "exp": 2550,
      "note": "获得磁力菇,白眼变红眼"
+    }
+   ]
+  },
+  {
+   "resourceId": 47,
+   "name": "水池2-7",
+   "category": 4,
+   "scene": 4,
+   "img": 19,
+   "enabled": true,
+   "zombies": [
+    2,
+    5,
+    11,
+    7,
+    14,
+    19
+   ],
+   "zombiesWiki": "",
+   "dave": "夜色更深了,水里的僵尸也更多了!",
+   "difficulties": [
+    {
+     "cdMinutes": 18,
+     "gold": 2700,
+     "exp": 1350,
+     "note": ""
+    },
+    {
+     "cdMinutes": 28,
+     "gold": 4500,
+     "exp": 2250,
+     "note": ""
+    },
+    {
+     "cdMinutes": 36,
+     "gold": 5500,
+     "exp": 2750,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "resourceId": 48,
+   "name": "水池2-8",
+   "category": 4,
+   "scene": 4,
+   "img": 20,
+   "enabled": true,
+   "zombies": [
+    2,
+    5,
+    11,
+    7,
+    13,
+    14,
+    18
+   ],
+   "zombiesWiki": "",
+   "dave": "全明星僵尸在夜里也不休息!",
+   "difficulties": [
+    {
+     "cdMinutes": 18,
+     "gold": 2900,
+     "exp": 1450,
+     "note": ""
+    },
+    {
+     "cdMinutes": 28,
+     "gold": 4700,
+     "exp": 2350,
+     "note": ""
+    },
+    {
+     "cdMinutes": 36,
+     "gold": 5700,
+     "exp": 2850,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "resourceId": 49,
+   "name": "水池2-9",
+   "category": 4,
+   "scene": 4,
+   "img": 21,
+   "enabled": true,
+   "zombies": [
+    2,
+    5,
+    11,
+    7,
+    14,
+    18,
+    19
+   ],
+   "zombiesWiki": "",
+   "dave": "小鬼僵尸趁着夜色偷偷靠近!",
+   "difficulties": [
+    {
+     "cdMinutes": 18,
+     "gold": 3100,
+     "exp": 1550,
+     "note": ""
+    },
+    {
+     "cdMinutes": 28,
+     "gold": 4900,
+     "exp": 2450,
+     "note": ""
+    },
+    {
+     "cdMinutes": 36,
+     "gold": 5900,
+     "exp": 2950,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "resourceId": 50,
+   "name": "水池2-10",
+   "category": 4,
+   "scene": 4,
+   "img": 22,
+   "enabled": true,
+   "zombies": [
+    2,
+    5,
+    11,
+    7,
+    14,
+    18,
+    16
+   ],
+   "zombiesWiki": "",
+   "dave": "巨人僵尸在夜晚的泳池边出现了!这是最后的考验!",
+   "difficulties": [
+    {
+     "cdMinutes": 18,
+     "gold": 3400,
+     "exp": 1700,
+     "note": ""
+    },
+    {
+     "cdMinutes": 28,
+     "gold": 5300,
+     "exp": 2650,
+     "note": ""
+    },
+    {
+     "cdMinutes": 36,
+     "gold": 6400,
+     "exp": 3200,
+     "note": ""
     }
    ]
   }
