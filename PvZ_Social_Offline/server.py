@@ -1724,6 +1724,8 @@ def _normalize_progress(save):
             unlocked_levels.add(mid + 1)
 
     plants = {12, 2}
+    # All seeds are unlocked from the start (user request 2026-10-09).
+    plants.update(_PLANT_ALMANAC_IDS)
     for value in save.get("unlockedPlants", []):
         try:
             pid = int(value)
