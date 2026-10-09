@@ -1,5 +1,5 @@
 {
- "_comment": "Adventure levels (data from the PvZ Social Edition wiki tables). resourceId: 前院1-k=10+k, 前院2-k=20+k, 水池1-k=30+k, 水池2-k=40+k; mission id = resourceId*10 + difficulty (0 easy, 1 normal, 2 hard). 'enabled' levels are listed in the practice house; night levels need pvzScreen2/pvzScreen4. 'zombies' = wiki zombies minus types without art in this folder (pole-vaulter, newspaper, dolphin, jack-in-the-box). A level unlocks when the previous enabled level's easy difficulty is won. Houses (I1033): practice house 701 = tutorials + 前院1-1..1-10; 前院 house 706-710 = tutorials + 前院1-1..1-10 + 前院2-1..2-10; 水池 house 711-715 = 水池1-1..1-10 (the player's 3-1..3-10). Play order: 1-x, then 2-x, then 3-x.",
+ "_comment": "Adventure levels (data from the PvZ Social Edition wiki tables). resourceId: 前院1-k=10+k, 前院2-k=20+k, 水池1-k=30+k, 水池2-k=40+k; mission id = resourceId*10 + difficulty (0 easy, 1 normal, 2 hard). 'enabled' levels are listed in the practice house; night levels need pvzScreen2/pvzScreen4. 'zombies' = wiki zombies minus types without art in this folder (pole-vaulter, newspaper, dolphin, jack-in-the-box). A level unlocks when the previous enabled level's easy difficulty is won.",
  "houseTid": 701,
  "levels": [
   {
@@ -361,9 +361,9 @@
    "resourceId": 21,
    "name": "前院2-1",
    "category": 2,
-   "scene": 1,
+   "scene": 2,
    "img": 7,
-   "enabled": true,
+   "enabled": false,
    "zombies": [
     2,
     5
@@ -389,16 +389,15 @@
      "exp": 810,
      "note": ""
     }
-   ],
-   "sceneNote": "night lawn (pvzScreen2) is not in this folder, so it plays on the day lawn"
+   ]
   },
   {
    "resourceId": 22,
    "name": "前院2-2",
    "category": 2,
-   "scene": 1,
+   "scene": 2,
    "img": 8,
-   "enabled": true,
+   "enabled": false,
    "zombies": [
     2,
     5,
@@ -425,16 +424,15 @@
      "exp": 930,
      "note": ""
     }
-   ],
-   "sceneNote": "night lawn (pvzScreen2) is not in this folder, so it plays on the day lawn"
+   ]
   },
   {
    "resourceId": 23,
    "name": "前院2-3",
    "category": 2,
-   "scene": 1,
+   "scene": 2,
    "img": 9,
-   "enabled": true,
+   "enabled": false,
    "zombies": [
     2,
     5,
@@ -462,16 +460,15 @@
      "exp": 990,
      "note": ""
     }
-   ],
-   "sceneNote": "night lawn (pvzScreen2) is not in this folder, so it plays on the day lawn"
+   ]
   },
   {
    "resourceId": 24,
    "name": "前院2-4",
    "category": 2,
-   "scene": 1,
+   "scene": 2,
    "img": 10,
-   "enabled": true,
+   "enabled": false,
    "zombies": [
     2,
     5,
@@ -499,16 +496,15 @@
      "exp": 1080,
      "note": ""
     }
-   ],
-   "sceneNote": "night lawn (pvzScreen2) is not in this folder, so it plays on the day lawn"
+   ]
   },
   {
    "resourceId": 25,
    "name": "前院2-5",
    "category": 2,
-   "scene": 1,
+   "scene": 2,
    "img": 11,
-   "enabled": true,
+   "enabled": false,
    "zombies": [
     2,
     5,
@@ -537,16 +533,15 @@
      "exp": 1230,
      "note": ""
     }
-   ],
-   "sceneNote": "night lawn (pvzScreen2) is not in this folder, so it plays on the day lawn"
+   ]
   },
   {
    "resourceId": 26,
    "name": "前院2-6",
    "category": 2,
-   "scene": 1,
+   "scene": 2,
    "img": 12,
-   "enabled": true,
+   "enabled": false,
    "zombies": [
     2,
     5,
@@ -574,162 +569,6 @@
      "gold": 4350,
      "exp": 2100,
      "note": "获得地刺"
-    }
-   ],
-   "sceneNote": "night lawn (pvzScreen2) is not in this folder, so it plays on the day lawn"
-  },
-  {
-   "resourceId": 27,
-   "name": "前院2-7",
-   "category": 1,
-   "scene": 1,
-   "img": 7,
-   "enabled": true,
-   "zombies": [
-    2,
-    5,
-    11,
-    13,
-    14,
-    19
-   ],
-   "zombiesWiki": "",
-   "dave": "小鬼僵尸也来凑热闹了!别让他们溜过去!",
-   "difficulties": [
-    {
-     "cdMinutes": 16,
-     "gold": 2000,
-     "exp": 1000,
-     "note": ""
-    },
-    {
-     "cdMinutes": 26,
-     "gold": 3600,
-     "exp": 1800,
-     "note": ""
-    },
-    {
-     "cdMinutes": 34,
-     "gold": 4500,
-     "exp": 2250,
-     "note": ""
-    }
-   ]
-  },
-  {
-   "resourceId": 28,
-   "name": "前院2-8",
-   "category": 1,
-   "scene": 1,
-   "img": 8,
-   "enabled": true,
-   "zombies": [
-    2,
-    5,
-    11,
-    13,
-    14,
-    20,
-    19
-   ],
-   "zombiesWiki": "",
-   "dave": "越来越多的僵尸涌过来了,守住防线!",
-   "difficulties": [
-    {
-     "cdMinutes": 16,
-     "gold": 2150,
-     "exp": 1075,
-     "note": ""
-    },
-    {
-     "cdMinutes": 26,
-     "gold": 3800,
-     "exp": 1900,
-     "note": ""
-    },
-    {
-     "cdMinutes": 34,
-     "gold": 4700,
-     "exp": 2350,
-     "note": ""
-    }
-   ]
-  },
-  {
-   "resourceId": 29,
-   "name": "前院2-9",
-   "category": 1,
-   "scene": 1,
-   "img": 9,
-   "enabled": true,
-   "zombies": [
-    2,
-    5,
-    11,
-    13,
-    14,
-    18,
-    19
-   ],
-   "zombiesWiki": "",
-   "dave": "全明星僵尸冲过来了!准备好你最强的植物!",
-   "difficulties": [
-    {
-     "cdMinutes": 16,
-     "gold": 2300,
-     "exp": 1150,
-     "note": ""
-    },
-    {
-     "cdMinutes": 26,
-     "gold": 4000,
-     "exp": 2000,
-     "note": ""
-    },
-    {
-     "cdMinutes": 34,
-     "gold": 4900,
-     "exp": 2450,
-     "note": ""
-    }
-   ]
-  },
-  {
-   "resourceId": 30,
-   "name": "前院2-10",
-   "category": 1,
-   "scene": 1,
-   "img": 10,
-   "enabled": true,
-   "zombies": [
-    2,
-    5,
-    11,
-    13,
-    14,
-    18,
-    16
-   ],
-   "zombiesWiki": "",
-   "dave": "巨人僵尸出现了!这是前院最后的考验!",
-   "difficulties": [
-    {
-     "cdMinutes": 16,
-     "gold": 2500,
-     "exp": 1250,
-     "note": ""
-    },
-    {
-     "cdMinutes": 26,
-     "gold": 4300,
-     "exp": 2150,
-     "note": ""
-    },
-    {
-     "cdMinutes": 34,
-     "gold": 5250,
-     "exp": 2625,
-     "note": ""
     }
    ]
   },
@@ -946,160 +785,6 @@
      "gold": 4650,
      "exp": 2250,
      "note": "获得咖啡豆"
-    }
-   ]
-  },
-  {
-   "resourceId": 37,
-   "name": "水池1-7",
-   "category": 3,
-   "scene": 3,
-   "img": 13,
-   "enabled": true,
-   "zombies": [
-    2,
-    5,
-    11,
-    7,
-    13,
-    14
-   ],
-   "zombiesWiki": "",
-   "dave": "水里和岸上都有僵尸,两边都要顾好!",
-   "difficulties": [
-    {
-     "cdMinutes": 16,
-     "gold": 2300,
-     "exp": 1150,
-     "note": ""
-    },
-    {
-     "cdMinutes": 26,
-     "gold": 3900,
-     "exp": 1950,
-     "note": ""
-    },
-    {
-     "cdMinutes": 34,
-     "gold": 4800,
-     "exp": 2400,
-     "note": ""
-    }
-   ]
-  },
-  {
-   "resourceId": 38,
-   "name": "水池1-8",
-   "category": 3,
-   "scene": 3,
-   "img": 14,
-   "enabled": true,
-   "zombies": [
-    2,
-    5,
-    11,
-    7,
-    14,
-    18
-   ],
-   "zombiesWiki": "",
-   "dave": "橄榄球僵尸也学会了游泳?小心水路!",
-   "difficulties": [
-    {
-     "cdMinutes": 16,
-     "gold": 2450,
-     "exp": 1225,
-     "note": ""
-    },
-    {
-     "cdMinutes": 26,
-     "gold": 4100,
-     "exp": 2050,
-     "note": ""
-    },
-    {
-     "cdMinutes": 34,
-     "gold": 5000,
-     "exp": 2500,
-     "note": ""
-    }
-   ]
-  },
-  {
-   "resourceId": 39,
-   "name": "水池1-9",
-   "category": 3,
-   "scene": 3,
-   "img": 15,
-   "enabled": true,
-   "zombies": [
-    2,
-    5,
-    11,
-    7,
-    14,
-    18,
-    19
-   ],
-   "zombiesWiki": "",
-   "dave": "小鬼僵尸混在大部队里,别掉以轻心!",
-   "difficulties": [
-    {
-     "cdMinutes": 16,
-     "gold": 2600,
-     "exp": 1300,
-     "note": ""
-    },
-    {
-     "cdMinutes": 26,
-     "gold": 4300,
-     "exp": 2150,
-     "note": ""
-    },
-    {
-     "cdMinutes": 34,
-     "gold": 5200,
-     "exp": 2600,
-     "note": ""
-    }
-   ]
-  },
-  {
-   "resourceId": 40,
-   "name": "水池1-10",
-   "category": 3,
-   "scene": 3,
-   "img": 16,
-   "enabled": true,
-   "zombies": [
-    2,
-    5,
-    11,
-    7,
-    14,
-    18,
-    16
-   ],
-   "zombiesWiki": "",
-   "dave": "巨人僵尸来到了泳池边!这是水池最后的考验!",
-   "difficulties": [
-    {
-     "cdMinutes": 16,
-     "gold": 2800,
-     "exp": 1400,
-     "note": ""
-    },
-    {
-     "cdMinutes": 26,
-     "gold": 4600,
-     "exp": 2300,
-     "note": ""
-    },
-    {
-     "cdMinutes": 34,
-     "gold": 5600,
-     "exp": 2800,
-     "note": ""
     }
    ]
   },

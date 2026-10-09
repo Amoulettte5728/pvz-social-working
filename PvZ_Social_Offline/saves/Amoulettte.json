@@ -1,10 +1,10 @@
 {
-  "tutorialStep": 79859,
+  "tutorialStep": 1523,
   "skippedTutorial": true,
-  "money": 109840,
-  "gems": 8000,
-  "level": 10,
-  "experience": 7100,
+  "money": 5710,
+  "gems": 500,
+  "level": 1,
+  "experience": 1480,
   "houses": [],
   "levelsFinished": [
     1,
@@ -14,13 +14,7 @@
     5,
     6,
     7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13,
-    20
+    8
   ],
   "unlockedLevels": [
     1,
@@ -31,29 +25,17 @@
     6,
     7,
     8,
-    9,
-    10,
-    11,
-    12,
-    13,
-    20,
-    21
+    9
   ],
   "unlockedPlants": [
     2,
-    4,
-    8,
     9,
-    11,
     12,
-    13,
     16,
     17,
     18,
     20,
-    22,
-    24,
-    25
+    24
   ],
   "ownedBuildings": [],
   "placedBuildings": [
@@ -68,21 +50,9 @@
       "position": 480,
       "buyId": 1000001,
       "level": 1
-    },
-    {
-      "resourceId": 706,
-      "position": 323,
-      "buyId": 1000002,
-      "level": 1
-    },
-    {
-      "resourceId": 711,
-      "position": 311,
-      "buyId": 1000003,
-      "level": 1
     }
   ],
-  "nextBuildingId": 1000004,
+  "nextBuildingId": 1000002,
   "ownedFunctionCards": [],
   "decorations": [],
   "nextDecorationId": 2000000,
@@ -97,22 +67,51 @@
     120,
     130,
     140,
-    150,
-    180,
-    190,
-    200,
-    210
+    150
   ],
-  "plants": [],
-  "nextPlantId": 3000006,
-  "boostItems": {
-    "653": 0,
-    "656": 0,
-    "669": 0,
-    "663": 0,
-    "672": 0,
-    "666": 1,
-    "668": 0
-  },
-  "rampageBestScore": 2290498
+  "plants": [
+    {
+      "id": 3000000,
+      "clientPid": null,
+      "seedId": 115,
+      "position": 446,
+      "harvestTime": "2026-10-5 10:49:57"
+    },
+    {
+      "id": 3000001,
+      "clientPid": null,
+      "seedId": 116,
+      "position": 444,
+      "harvestTime": "2026-10-5 10:50:3"
+    },
+    {
+      "id": 3000002,
+      "clientPid": null,
+      "seedId": 111,
+      "position": 448,
+      "harvestTime": "2026-10-5 10:50:10"
+    },
+    {
+      "id": 3000003,
+      "clientPid": null,
+      "seedId": 107,
+      "position": 456,
+      "harvestTime": "2026-10-5 10:50:16"
+    },
+    {
+      "id": 3000004,
+      "clientPid": null,
+      "seedId": 103,
+      "position": 458,
+      "harvestTime": "2026-10-5 10:50:24"
+    },
+    {
+      "id": 3000005,
+      "clientPid": null,
+      "seedId": 104,
+      "position": 460,
+      "harvestTime": "2026-10-5 10:50:32"
+    }
+  ],
+  "nextPlantId": 3000006
 }

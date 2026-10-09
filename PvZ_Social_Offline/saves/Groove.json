@@ -1,19 +1,12 @@
 {
-  "tutorialStep": 10227,
+  "tutorialStep": 499,
   "skippedTutorial": false,
-  "money": 7080,
+  "money": 3570,
   "gems": 500,
   "level": 1,
-  "experience": 615,
+  "experience": 10,
   "houses": [],
   "levelsFinished": [],
-  "unlockedLevels": [
-    1
-  ],
-  "unlockedPlants": [
-    12,
-    2
-  ],
   "ownedBuildings": [],
   "placedBuildings": [
     {
@@ -21,28 +14,8 @@
       "position": 350,
       "buyId": 1000000,
       "level": 1
-    },
-    {
-      "resourceId": 701,
-      "position": 316,
-      "buyId": 1000001,
-      "level": 1
     }
   ],
-  "nextBuildingId": 1000002,
-  "ownedFunctionCards": [],
-  "decorations": [],
-  "nextDecorationId": 2000000,
-  "unlockedAreas": [
-    8,
-    9,
-    12,
-    13
-  ],
-  "plants": [],
-  "nextPlantId": 3000000,
-  "boostItems": {
-    "653": 0
-  },
-  "rampageBestScore": 311050
+  "nextBuildingId": 1000001,
+  "ownedFunctionCards": []
 }

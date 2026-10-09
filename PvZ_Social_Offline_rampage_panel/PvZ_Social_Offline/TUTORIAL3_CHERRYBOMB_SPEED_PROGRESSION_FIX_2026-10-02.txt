@@ -1,9 +1,0 @@
-Tutorial 3 / Adventure progression reset — 2026-10-02
-
-Base: PvZ_Social_Offline_original_garden.zip.
-
-1. Tutorial 3 completion is now treated as completion of mission 3, so the first real Adventure mission (mission 4 / 前院1-1) becomes unlocked and returned by services.I1007.
-2. Skipping or accepting the tutorial also completes the tutorial progression through mission 3 and unlocks the first real Adventure mission.
-3. Tutorial stage 2 grants Cherry Bomb card/plant id 17 before Tutorial 3. This makes the real Cherry Bomb ownership available to the in-level card/seed selection path rather than only as an end-of-level reward.
-4. Existing Tutorial 3 full-level battle code and original TDGameUI speed control were preserved. Starting from this original client removes the previous experimental client-side 2x-speed patch that was causing speed state to carry incorrectly.
-5. No town plant SWFs or pvzTD_1_.swf were changed.
